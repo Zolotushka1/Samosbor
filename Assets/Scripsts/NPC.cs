@@ -6,8 +6,8 @@ using UnityEngine;
 public class NPC : ScriptableObject
 {
     public string name;
-    [TextArea(3, 15)]
+    [TextArea(3, 30)]
     public string[] dialogue;
-    [TextArea(3, 15)]
+    [TextArea(3, 30)]
     public string[] playerDialogue;
 }
