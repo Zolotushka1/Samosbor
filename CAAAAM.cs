@@ -4,53 +4,51 @@ using UnityEngine;
 
 public class CAAAAM : MonoBehaviour
 {
-    public Transform target; //Объект за которым летаем(Наш персонаж)
-    public float distance = 3.0f; //На каком ратоянии от него
-    public float xSpeed = 125.0f; //Чуствительность по Х
-    public float ySpeed = 50.0f; //Y Чуствительность
-    public float targetHeight = 2.0f; //Высота относительно объекта
-                                      //Минимальный и максимальный угол поворота Y инче камеру разверет, Дальше у нас будет простая функция для инвертации их в обратные числа
+    public Transform target; 
+    public float distance = 3.0f; 
+    public float xSpeed = 125.0f; 
+    public float ySpeed = 50.0f; 
+    public float targetHeight = 2.0f; 
     public float yMinLimit = -40;
     public float yMaxLimit = 80;
-    //Максимальное удаление и приближение камеры к персонажу, искорость.
     public float maxDistance = 10.0f;
     public float minDistance = 0.5f;
     public float zoomRote = 90.0f;
 
-    private float x = 0.0f; //Угол поворота по Y?
-    private float y = 0.0f; //Уго поворота по X?
+    private float x = 0.0f; 
+    private float y = 0.0f; 
     public void Start()
     {
-        //переворачивам углы
+        
         Vector3 angles = transform.eulerAngles;
         x = angles.y;
         y = angles.x;
 
         if (GetComponent<Rigidbody>())
-            GetComponent<Rigidbody>().freezeRotation = true; //Если камера столкнется с физ.объектомона остановиться
+            GetComponent<Rigidbody>().freezeRotation = true; 
     }
 
     public void LateUpdate()
     {
         if (target)
-        {//Если цель установлена(Персонаж)
-         //Меняем углы согласно положению мыши
+        {
+         
             x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-            //Меняем дистанция до персонажа.
+            
            
 
-            y = ClampAngle(y, yMinLimit, yMaxLimit); //Вызыв самописной функции для ограничения углов поврот
+            y = ClampAngle(y, yMinLimit, yMaxLimit); 
             Control.x = x;
-            //Повернуть камеру согласно поченым данным
+            
             Quaternion rotation = Quaternion.Euler(y, x, 0);
             transform.rotation = rotation;
 
-            //Двигаем камеру и следим за персонажем
+            
             Vector3 position = rotation * new Vector3(0.0f, targetHeight + 0.5f) + target.position;
             transform.position = position;
 
-            //Следуйщи код нужен что бы камера не проваливалась по ланшафт  
+              
             RaycastHit hit;
             Vector3 trueTargetPosition = target.transform.position - new Vector3(0, -targetHeight, 0);
             if (Physics.Linecast(trueTargetPosition, transform.position, out hit))
@@ -62,7 +60,7 @@ public class CAAAAM : MonoBehaviour
         }
 
     }
-    //Меняем значения углов
+    
     public static float ClampAngle(float angle, float min, float max)
     {
         if (angle < -360)
