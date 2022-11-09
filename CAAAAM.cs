@@ -19,7 +19,7 @@ public class CAAAAM : MonoBehaviour
     private float y = 0.0f; 
     public void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
         Vector3 angles = transform.eulerAngles;
         x = angles.y;
         y = angles.x;
