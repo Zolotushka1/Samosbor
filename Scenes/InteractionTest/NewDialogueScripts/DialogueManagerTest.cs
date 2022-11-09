@@ -60,7 +60,7 @@ public class DialogueManagerTest : MonoBehaviour
         {
             return;
         }
-        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.E))
+        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.F))
         {
             ContinueStory();
         }

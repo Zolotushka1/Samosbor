@@ -1,4 +1,4 @@
-using System.Collections;
+/*(using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
             /*if (Input.GetKeyDown(KeyCode.E) && isTalking == false)
             {
                 StartConversation();
-            }*/
+            }
             if (Input.GetKeyDown(KeyCode.Escape) && isTalking == true)
             {
                 EndDialogue();
@@ -120,3 +120,4 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
     }
 }
+*/
