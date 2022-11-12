@@ -70,10 +70,7 @@ public class Control : MonoBehaviour
                 IsDrawWeapon = true; 
             }
         }
-
         
-        Quaternion rotate = Quaternion.Euler(0, x, 0); 
-        player.transform.rotation = rotate; 
 
 
 
