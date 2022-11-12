@@ -5,26 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour
 {
-    private GameObject player; 
-    public float speed = 6; 
-    public float _speed; 
-    public int rotation = 250; 
-    public int jump = 3; 
+    private GameObject player;
+    public float speed = 6;
+    public float _speed;
+    public int rotation = 250;
+    public int jump = 3;
+    public bool isGrounded;
 
+    public static bool IsDrawWeapon;
+    public static float x = 0.0f;
 
-    public static bool IsDrawWeapon;  
-    public static float x = 0.0f; 
-    
     void Start()
     {
-        IsDrawWeapon = false; 
-        _speed = speed; 
-        player = (GameObject)this.gameObject; 
+        IsDrawWeapon = false;
+        _speed = speed;
+        player = (GameObject)this.gameObject;
     }
 
     void Update()
     {
         gun();
+    }
+    void OnCollisionStay()
+    {
+        isGrounded = true;
     }
     void gun()
     {
@@ -53,24 +57,24 @@ public class Control : MonoBehaviour
         {
             player.transform.position += player.transform.up * jump * Time.deltaTime;
         }
-        if (IsDrawWeapon == true) 
+        if (IsDrawWeapon == true)
         {
-            speed = _speed * 2; 
+            speed = _speed * 2;
             if (Input.GetKey(KeyCode.Tab))
             {
-                IsDrawWeapon = false; 
+                IsDrawWeapon = false;
             }
         }
         else if (IsDrawWeapon == false)
         {
             speed = _speed;
-            
-            if (Input.GetKey(KeyCode.Tab)) 
+
+            if (Input.GetKey(KeyCode.Tab))
             {
-                IsDrawWeapon = true; 
+                IsDrawWeapon = true;
             }
         }
-        
+
 
 
 
