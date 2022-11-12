@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    public NPC npc;
+    public NPC_Fokin npc;
 
     bool isTalking = false;
 
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     void OnMouseOver()
     {
-        distance = Vector3.Distance(player.transform.position, this.transform.position); //минус, что постоянно тригер срабатывает только когда мышка на неписе, в игре её можно скрыть и сделать по центру, но придется смотреть на непися.
+        distance = Vector3.Distance(player.transform.position, this.transform.position); //пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
         if (distance <= 2.5f)
         {
             if(Input.GetAxis("Mouse ScrollWheel")<0f)
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
                     curResponseTracker = 0;
                 }
             }
-            //триггер диалога
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (Input.GetKeyDown(KeyCode.E) && isTalking == false)
             {
                 StartConversation();
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
 
     }
     
-    void StartConversation() //начинает диалог
+    void StartConversation() //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     {
         isTalking = true;
         curResponseTracker = 0;
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
    
 
 
-    void EndDialogue() //заканчивает диалог
+    void EndDialogue() //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     {
         isTalking = false;
         dialogueUI.SetActive(false);
