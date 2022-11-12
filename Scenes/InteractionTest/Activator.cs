@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Activator : MonoBehaviour
 {
-	[SerializeField] string activationLine;
+	public string activationLine;
 
 	public UnityEvent OnActivatedButtonDown;
 

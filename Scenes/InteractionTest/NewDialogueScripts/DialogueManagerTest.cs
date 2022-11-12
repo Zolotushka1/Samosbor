@@ -55,6 +55,10 @@ public class DialogueManagerTest : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && dialogueIsPlaying == true)
+        {
+            ExitDialogueMode();
+        }
         // return right away if dialogue isn't playing
         if (!dialogueIsPlaying)
         {
@@ -66,6 +70,10 @@ public class DialogueManagerTest : MonoBehaviour
         }
         // handle continuing to the next line in the dialogue when submit is pressed
         // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
+        if (Input.GetKeyDown(KeyCode.Escape) && dialogueIsPlaying==true)
+        {
+            ExitDialogueMode();
+        }
 
     }
 
@@ -87,7 +95,11 @@ public class DialogueManagerTest : MonoBehaviour
         dialogueText.text = "";
     }
 
-  
+    public void Test()
+    {
+        print("Test");
+
+    }
 
 
     private void ContinueStory()
@@ -146,7 +158,8 @@ public class DialogueManagerTest : MonoBehaviour
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
         // NOTE: The below two lines were added to fix a bug after the Youtube video was made
-         // this is specific to my InputManager script
+        // this is specific to my InputManager script
+        
         ContinueStory();
     }
 
