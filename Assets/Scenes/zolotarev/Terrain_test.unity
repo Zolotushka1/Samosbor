@@ -217,7 +217,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &567571317
+--- !u!1 &1674926118
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,9 +225,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 567571320}
-  - component: {fileID: 567571319}
-  - component: {fileID: 567571318}
+  - component: {fileID: 1674926121}
+  - component: {fileID: 1674926120}
+  - component: {fileID: 1674926119}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -235,27 +235,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!154 &567571318
+--- !u!154 &1674926119
 TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567571317}
-  m_Material: {fileID: 13400000, guid: 694ac5f78f2414a4db9b39c45726dfe4, type: 2}
+  m_GameObject: {fileID: 1674926118}
+  m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 0317230ffd12e1e4abc72c91c8efc6f5, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 5e31d22d92a20bf4c84a514849402feb, type: 2}
   m_EnableTreeColliders: 1
---- !u!218 &567571319
+--- !u!218 &1674926120
 Terrain:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567571317}
+  m_GameObject: {fileID: 1674926118}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 0317230ffd12e1e4abc72c91c8efc6f5, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 5e31d22d92a20bf4c84a514849402feb, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -280,13 +280,13 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!4 &567571320
+--- !u!4 &1674926121
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567571317}
+  m_GameObject: {fileID: 1674926118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
