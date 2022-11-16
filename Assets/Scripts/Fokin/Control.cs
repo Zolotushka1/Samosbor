@@ -6,30 +6,33 @@ using UnityEngine.SceneManagement;
 public class Control : MonoBehaviour
 {
     private GameObject player;
+    public GameObject weapon1;
+    public GameObject weapon2;
     public float speed = 6;
     public float _speed;
     public float DashSpeed = 50;
     public bool isGrounded;
+    public bool IsDrawWeapon;
+    public bool Weapon;
 
-    public static bool IsDrawWeapon;
-    public static float x = 0.0f;
 
     void Start()
     {
         IsDrawWeapon = false;
+        Weapon = false;
         _speed = speed;
         player = (GameObject)this.gameObject;
     }
 
     void Update()
     {
-        gun();
+        Move();
     }
     void OnCollisionStay()
     {
         isGrounded = true;
     }
-    void gun()
+    void Move()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -69,27 +72,56 @@ public class Control : MonoBehaviour
                 player.transform.position += player.transform.right * speed * Time.deltaTime * DashSpeed;
             }
         }
-        if (IsDrawWeapon == true)
-        {
-            speed = _speed * 2;
-            if (Input.GetKey(KeyCode.Tab))
+        if (IsDrawWeapon == false)
+        { 
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
+                if (Weapon == false)
+                {
+                    weapon1.SetActive(true);
+                    weapon2.SetActive(false);
+                    IsDrawWeapon = true;
+                }
+                else if (Weapon == true)
+                {
+                    weapon1.SetActive(false);
+                    weapon2.SetActive(true);
+                    IsDrawWeapon = true;
+                }
+             
+
+            }
+        }
+        else if (IsDrawWeapon == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                weapon1.SetActive(false);
+                weapon2.SetActive(false);
                 IsDrawWeapon = false;
             }
-        }
-        else if (IsDrawWeapon == false)
-        {
-            speed = _speed;
 
-            if (Input.GetKey(KeyCode.Tab))
+            if (Weapon == true)
             {
-                IsDrawWeapon = true;
+                speed = _speed;
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    weapon1.SetActive(true);
+                    weapon2.SetActive(false);
+                    Weapon = false;
+                }
             }
+            else if (Weapon == false)
+            {
+                speed = _speed;
+
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    weapon1.SetActive(false);
+                    weapon2.SetActive(true);
+                    Weapon = true;
+                }
+            }            
         }
-
-
-
-
     }
-
 }
