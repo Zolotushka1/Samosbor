@@ -5,126 +5,125 @@ using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour
 {
-    private GameObject player; 
-    public int maxHealth = 100;
-    public static int Health;
-    public float speed = 6; 
-    public float _speed; 
-    public int rotation = 250; 
-    public int jump = 3; 
+    private GameObject player;
+    public GameObject weapon1;
+    public GameObject weapon2;
+    public float speed = 6;
+    public float _speed;
+    public float DashSpeed = 50;
+    public bool isGrounded;
+    public bool IsDrawWeapon;
+    public bool Weapon;
 
 
-    public static bool IsDrawWeapon;  
-    public static float x = 0.0f; 
-    
     void Start()
     {
-        Health = maxHealth;
-        IsDrawWeapon = false; 
-        _speed = speed; 
-        player = (GameObject)this.gameObject; 
+        IsDrawWeapon = false;
+        Weapon = false;
+        _speed = speed;
+        player = (GameObject)this.gameObject;
     }
 
     void Update()
     {
-        gun();
-        die();
+        Move();
     }
-    void gun()
+    void OnCollisionStay()
     {
-        if (IsDrawWeapon == true) 
+        isGrounded = true;
+    }
+    void Move()
+    {
+        if (Input.GetKey(KeyCode.W))
         {
-            speed = _speed; 
-            if (Input.GetKey(KeyCode.W)) 
+            player.transform.position += player.transform.forward * speed * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                player.transform.position += player.transform.forward * speed * Time.deltaTime; 
+                player.transform.position += player.transform.forward * speed * Time.deltaTime * DashSpeed;
             }
-            if (Input.GetKey(KeyCode.S))
+            
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            speed = _speed / 2;
+            player.transform.position -= player.transform.forward * speed * Time.deltaTime;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            speed = _speed * 2;
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                speed = _speed / 2; 
-                player.transform.position -= player.transform.forward * speed * Time.deltaTime; 
-            }
-            if (Input.GetKeyUp(KeyCode.S))
-            {
-                speed = _speed * 2; 
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                player.transform.position -= player.transform.right * speed * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                player.transform.position += player.transform.right * speed * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.Space))
-            {
-                player.transform.position += player.transform.up * jump * Time.deltaTime; 
-            }
-
-            if (Input.GetKey(KeyCode.Keypad1)) 
-            {
-                IsDrawWeapon = false; 
+                player.transform.position -= player.transform.forward * speed * Time.deltaTime * DashSpeed;
             }
         }
-        else if (IsDrawWeapon == false)
+        if (Input.GetKey(KeyCode.A))
         {
-            speed = _speed;
-            if (Input.GetKey(KeyCode.LeftShift)) 
+            player.transform.position -= player.transform.right * speed * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                speed = _speed * 2; 
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift)) 
-            {
-                speed = _speed; 
-            }
-            if (Input.GetKey(KeyCode.W)) 
-            {
-                player.transform.position += player.transform.forward * speed * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                speed = _speed / 2;
-                player.transform.position -= player.transform.forward * speed * Time.deltaTime; 
-            }
-            if (Input.GetKeyUp(KeyCode.S))
-            {
-                speed = _speed; 
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                player.transform.position -= player.transform.right * speed * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                player.transform.position += player.transform.right * speed * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.Space))
-            {
-                player.transform.position += player.transform.up * jump * Time.deltaTime; 
-            }
-            if (Input.GetKey(KeyCode.Keypad2)) 
-            {
-                IsDrawWeapon = true; 
+                player.transform.position -= player.transform.right * speed * Time.deltaTime * DashSpeed;
             }
         }
-
-        
-        Quaternion rotate = Quaternion.Euler(0, x, 0); 
-        player.transform.rotation = rotate; 
-
-
-
-    }
-    public static void GetDamage(int DAMAge)
-    {
-        Health -= DAMAge;
-       
-    }
-    void die()
-    {
-        if (Health < 1)
+        if (Input.GetKey(KeyCode.D))
         {
-            SceneManager.LoadScene(0);
+            player.transform.position += player.transform.right * speed * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                player.transform.position += player.transform.right * speed * Time.deltaTime * DashSpeed;
+            }
+        }
+        if (IsDrawWeapon == false)
+        { 
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (Weapon == false)
+                {
+                    weapon1.SetActive(true);
+                    weapon2.SetActive(false);
+                    IsDrawWeapon = true;
+                }
+                else if (Weapon == true)
+                {
+                    weapon1.SetActive(false);
+                    weapon2.SetActive(true);
+                    IsDrawWeapon = true;
+                }
+             
+
+            }
+        }
+        else if (IsDrawWeapon == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                weapon1.SetActive(false);
+                weapon2.SetActive(false);
+                IsDrawWeapon = false;
+            }
+
+            if (Weapon == true)
+            {
+                speed = _speed;
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    weapon1.SetActive(true);
+                    weapon2.SetActive(false);
+                    Weapon = false;
+                }
+            }
+            else if (Weapon == false)
+            {
+                speed = _speed;
+
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    weapon1.SetActive(false);
+                    weapon2.SetActive(true);
+                    Weapon = true;
+                }
+            }
+            
+
         }
     }
 }
