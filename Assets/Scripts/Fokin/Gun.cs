@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public int quantityBullet = 0;
+    public int MaxQuantityBullet = 7;
     public GameObject bullet;
     public Camera mainCamera;
     public Transform spawnerBullet;
@@ -13,12 +15,14 @@ public class Gun : MonoBehaviour
     void Update()
     {
         Shoot();
+           
     }
     private void Shoot()
     {
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) &(quantityBullet != 0))
         {
+            quantityBullet -= 1;
            
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(10f, 0, 0));
             RaycastHit hit;
@@ -27,20 +31,21 @@ public class Gun : MonoBehaviour
                 targetPoint = hit.point;
             else
                 targetPoint = ray.GetPoint(75);
+            
             Vector3 dirWithoutSpread = targetPoint - spawnerBullet.position;
             float x = Random.Range(-spread, spread);
             float y = Random.Range(-spread, spread);
-
             Vector3 dirWithSpread = dirWithoutSpread + new Vector3( x, y, 0);
             GameObject currentBullet = Instantiate(bullet, spawnerBullet.position, Quaternion.identity);
             currentBullet.transform.forward = spawnerBullet.transform.forward;
-            currentBullet.GetComponent<Rigidbody>().AddForce(spawnerBullet.transform.forward * BulletSpeed, ForceMode.Impulse);//добавить код пули и фиксануть код
+            currentBullet.GetComponent<Rigidbody>().AddForce(spawnerBullet.transform.forward * BulletSpeed, ForceMode.Impulse);//РґРѕР±Р°РІРёС‚СЊ РєРѕРґ РїСѓР»Рё Рё С„РёРєСЃР°РЅСѓС‚СЊ РєРѕРґ
             
 
         }
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            quantityBullet = MaxQuantityBullet;
+        }
 
-
-
-    }
+    }    
 }
