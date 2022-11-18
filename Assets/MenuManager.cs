@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuManager : MonoBehaviour
+{
+
+    [SerializeField] private GameObject _mainCamera;
+    [SerializeField] private GameObject _settingsCamera;
+    [SerializeField] private GameObject _menuPanel;
+    [SerializeField] private GameObject _settingsPanel;
+
+    public void Play()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Quit game");
+    }
+
+    public void Settings()
+    {
+        _mainCamera.SetActive(false);
+        _settingsCamera.SetActive(true);
+        _menuPanel.SetActive(false);
+        _settingsPanel.SetActive(true);
+    }
+
+}
