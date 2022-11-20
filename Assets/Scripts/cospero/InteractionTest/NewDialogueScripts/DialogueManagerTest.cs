@@ -79,6 +79,7 @@ public class DialogueManagerTest : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        Time.timeScale = 0f;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
@@ -88,6 +89,7 @@ public class DialogueManagerTest : MonoBehaviour
 
     private IEnumerator ExitDialogueMode()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(0.2f);
 
         dialogueIsPlaying = false;
