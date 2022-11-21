@@ -34,14 +34,25 @@ public class Control : MonoBehaviour
     }
     void Move()
     {
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = _speed;
+        }
         if (Input.GetKey(KeyCode.W))
         {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = _speed * 2;
+            }
             player.transform.position += player.transform.forward * speed * Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 player.transform.position += player.transform.forward * speed * Time.deltaTime * DashSpeed;
             }
             
+           
+
+
         }
         if (Input.GetKey(KeyCode.S))
         {
