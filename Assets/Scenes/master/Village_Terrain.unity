@@ -712,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4451370341407004344, guid: 90baefa7eeea67e40a762b19d50a812c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5346512074731711256, guid: 90baefa7eeea67e40a762b19d50a812c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -763,6 +767,10 @@ PrefabInstance:
     - target: {fileID: 6208771148959114595, guid: 90baefa7eeea67e40a762b19d50a812c, type: 3}
       propertyPath: m_LocalPosition.z
       value: -17.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728990110002888665, guid: 90baefa7eeea67e40a762b19d50a812c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8539297618413462205, guid: 90baefa7eeea67e40a762b19d50a812c, type: 3}
       propertyPath: Weapon
@@ -1347,7 +1355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1349247274
 Transform:
   m_ObjectHideFlags: 0
