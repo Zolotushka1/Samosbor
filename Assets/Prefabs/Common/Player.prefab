@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834377386903820160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.62166, y: 0.27, z: 299.8453}
+  m_LocalPosition: {x: -8.021023, y: 5.33, z: -17.71686}
   m_LocalScale: {x: 1, y: 1.8398, z: 0.9649}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -167,7 +167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.3709, z: 0.1025}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5161241192535574883}
+  - {fileID: 5677449664187666095}
   m_Father: {fileID: 2852059082093045221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 91.922, z: 0}
@@ -233,12 +233,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c09ccd5603165498f86a8899f2eca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantityBullet: 3
-  MaxQuantityBullet: 3
-  bullet: {fileID: 7003762016181501029, guid: 38ecf2d0869d74d44bd61c3071f638f8, type: 3}
+  quantityBullet: 0
+  MaxQuantityBullet: 7
+  bullet: {fileID: 6439306643263504602, guid: 6ba61075651a71e4b8a09effed8dc6bc, type: 3}
   mainCamera: {fileID: 6302456132126587749}
-  spawnerBullet: {fileID: 5161241192535574883}
-  BulletSpeed: 45
+  spawnerBullet: {fileID: 5677449664187666095}
+  BulletSpeed: 100
   spread: 0
 --- !u!1 &6757660801688803993
 GameObject:
@@ -478,7 +478,7 @@ Transform:
   m_Father: {fileID: 4966135143941631249}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!1 &8350254163260766178
+--- !u!1 &8829373095056846894
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5161241192535574883}
+  - component: {fileID: 5677449664187666095}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -494,13 +494,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5161241192535574883
+--- !u!4 &5677449664187666095
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8350254163260766178}
+  m_GameObject: {fileID: 8829373095056846894}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.5129, y: 0.439, z: 0.193}
   m_LocalScale: {x: 1, y: 1, z: 1}
