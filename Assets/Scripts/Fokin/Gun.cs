@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
             Vector3 dirWithSpread = dirWithoutSpread + new Vector3( x, y, 0);
             GameObject currentBullet = Instantiate(bullet, spawnerBullet.position, Quaternion.identity);
             currentBullet.transform.forward = spawnerBullet.transform.forward;
-            currentBullet.GetComponent<Rigidbody>().AddForce(spawnerBullet.transform.forward * BulletSpeed, ForceMode.Impulse);//добавить код пули и фиксануть код
+            currentBullet.GetComponent<Rigidbody>().AddForce(spawnerBullet.transform.forward * BulletSpeed, ForceMode.Impulse);//РґРѕР±Р°РІРёС‚СЊ РєРѕРґ РїСѓР»Рё Рё С„РёРєСЃР°РЅСѓС‚СЊ РєРѕРґ
             
 
         }
