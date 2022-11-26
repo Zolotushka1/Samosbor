@@ -11,6 +11,9 @@ public class Gun : MonoBehaviour
     public Transform spawnerBullet;
     public float BulletSpeed;
     public float spread;
+    public AudioClip ShootMp3;
+    public AudioSource _AudioSource;
+    public ParticleSystem ShootEff;
 
     void Update()
     {
@@ -22,6 +25,8 @@ public class Gun : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) &(quantityBullet != 0))
         {
+            _AudioSource.PlayOneShot(ShootMp3);
+            ShootEff.Play();
             quantityBullet -= 1;
            
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(10f, 0, 0));
