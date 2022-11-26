@@ -1290,6 +1290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Revolver_Fixed
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61642b3467aa6444791c1be74c820c23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61642b3467aa6444791c1be74c820c23, type: 3}
 --- !u!4 &1239957879 stripped
@@ -1321,9 +1325,9 @@ MonoBehaviour:
   spawnerBullet: {fileID: 182423635}
   BulletSpeed: 45
   spread: 0
-  ShootMp3: {fileID: 0}
+  ShootMp3: {fileID: 8300000, guid: fa592b7769654064f85c3923cf44c973, type: 3}
   _AudioSource: {fileID: 0}
-  ShootEff: {fileID: 0}
+  ShootEff: {fileID: 198792769130808804, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!1 &1289739796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6004da61026b34a43a4c0c0fd3f09f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon1: {fileID: 0}
+  weapon1: {fileID: 1239957880}
   weapon2: {fileID: 4451370340997181643}
   speed: 6
   _speed: 0
