@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    
+    public string Npc_Name;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;

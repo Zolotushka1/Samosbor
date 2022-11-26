@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using static System.Net.Mime.MediaTypeNames;
 
 public class DialogueManagerTest : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class DialogueManagerTest : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
-
-    
+    //[SerializeField] TMP_Text NameText;
+    [SerializeField] private GameObject UiCursor;
 
 
     [Header("Choices UI")]
@@ -79,10 +80,12 @@ public class DialogueManagerTest : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        UiCursor.SetActive(false);
         Time.timeScale = 0f;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        //NameText.text = Npc_Name;
 
         ContinueStory();
     }
@@ -95,6 +98,7 @@ public class DialogueManagerTest : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        UiCursor.SetActive(true);
     }
 
     public void Test()
