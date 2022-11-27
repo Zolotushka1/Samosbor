@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-public class MenuSettings: MonoBehaviour
+public class MenuSettings : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown qualityDropdown;
-    
+    public Slider mouseSensitivity;
+
+
     Resolution[] resolutions;
 
     void Start()
@@ -55,6 +57,8 @@ public class MenuSettings: MonoBehaviour
 
     public void SaveSettings()
     {
+        print(mouseSensitivity.value);
+        PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity.value);
         PlayerPrefs.SetInt("QualitySettingPreference", qualityDropdown.value);
         PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
         PlayerPrefs.SetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen));
