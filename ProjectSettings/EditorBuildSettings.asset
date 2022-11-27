@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/master/Village_Terrain.unity
+    guid: 28aff17d7efcc2e43b9cbc72cd179e7b
   m_configObjects: {}
