@@ -1677,27 +1677,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920.0001
+      value: 61.4531
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1231.1051
+      value: 61.4531
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_LocalScale.x
@@ -1741,11 +1741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 366.5
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 235
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423623070703126427, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
