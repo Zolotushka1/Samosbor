@@ -86,6 +86,8 @@ public class DialogueManagerTest : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         //NameText.text = Npc_Name;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         ContinueStory();
     }
@@ -99,6 +101,8 @@ public class DialogueManagerTest : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         UiCursor.SetActive(true);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Test()

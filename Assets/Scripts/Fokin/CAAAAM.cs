@@ -16,9 +16,11 @@ public class CAAAAM : MonoBehaviour
         Cursor.visible = false;
     }
 
+
     void Update()
     {
-        var vertical = -Input.GetAxis("Mouse Y") * _sensivity * Time.deltaTime;
+        
+            var vertical = -Input.GetAxis("Mouse Y") * _sensivity * Time.deltaTime;
         var horizontal = Input.GetAxis("Mouse X") * _sensivity * Time.deltaTime;
 
         _currentVerticalAngle = Mathf.Clamp(_currentVerticalAngle + vertical, _verticalUpper, _verticalLover);
