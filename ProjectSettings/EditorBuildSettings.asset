@@ -4,8 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/master/Village_Terrain.unity
     guid: 28aff17d7efcc2e43b9cbc72cd179e7b
+=======
+<<<<<<< Updated upstream
+  m_Scenes: []
+=======
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/armagedontkd/Village_Terrain_Test.unity
+    guid: de7f93bfaaf53de4a90831351720483d
+>>>>>>> Stashed changes
+>>>>>>> remotes/origin/armagedontkd
   m_configObjects: {}
