@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class stats : MonoBehaviour
+public class HpScript : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    public static float Health;
+    public int maxHealth = 100;
+    public static int Health;
     public int sceneL = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,10 @@ public class stats : MonoBehaviour
     {
         die();
     }
-    public  void GetDamage(float DAMAge)
+    public static void GetDamage(int DAMAge)
     {
         Health -= DAMAge;
-        UnityEngine.Debug.Log(Health);
+
     }
     void die()
     {
