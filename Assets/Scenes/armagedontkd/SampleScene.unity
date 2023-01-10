@@ -558,6 +558,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: _menuPanel
+      value: 
+      objectReference: {fileID: 1809389216}
+    - target: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 963194225}
+    - target: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: _settingsPanel
+      value: 
+      objectReference: {fileID: 44926592}
+    - target: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: _settingsCamera
+      value: 
+      objectReference: {fileID: 1341878374}
     - target: {fileID: 473321994736049045, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -670,6 +686,18 @@ PrefabInstance:
     - target: {fileID: 5838865558183156058, guid: 1976df04a4e45ee448317b471a463294, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838865558488774464, guid: 1976df04a4e45ee448317b471a463294, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838865558955095596, guid: 1976df04a4e45ee448317b471a463294, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838865559493884750, guid: 1976df04a4e45ee448317b471a463294, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1976df04a4e45ee448317b471a463294, type: 3}
