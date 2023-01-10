@@ -9,6 +9,10 @@ public class MenuSettings : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown qualityDropdown;
     public Slider mouseSensitivity;
+    [SerializeField] private GameObject _mainCamera;
+    [SerializeField] private GameObject _settingsCamera;
+    [SerializeField] private GameObject _menuPanel;
+    [SerializeField] private GameObject _settingsPanel;
 
 
     Resolution[] resolutions;
@@ -52,7 +56,11 @@ public class MenuSettings : MonoBehaviour
 
     public void ExitSettings()
     {
-        SceneManager.LoadScene("Level");
+        
+        _mainCamera.SetActive(true);
+        _settingsCamera.SetActive(false);
+        _menuPanel.SetActive(true);
+        _settingsPanel.SetActive(false);
     }
 
     public void SaveSettings()
