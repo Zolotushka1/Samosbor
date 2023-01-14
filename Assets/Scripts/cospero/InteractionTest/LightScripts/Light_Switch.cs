@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using UnityEngine;
 
 public class Light_Switch : MonoBehaviour
@@ -9,6 +10,7 @@ public class Light_Switch : MonoBehaviour
     //public Animator SwitchAnimator;
     public Activator activator;
     public bool isOn;
+    public AudioSource SwitchAudio;
     
     void Start()
     {   
@@ -17,6 +19,7 @@ public class Light_Switch : MonoBehaviour
         {
             foreach (GameObject Light in Lights)
             {
+                
                 Light.SetActive(true);
             }
 
@@ -25,6 +28,7 @@ public class Light_Switch : MonoBehaviour
         {
             foreach (GameObject Light in Lights)
             {
+                
                 Light.SetActive(false);
             }
             
@@ -42,7 +46,10 @@ public class Light_Switch : MonoBehaviour
             //SwitchAnimator.SetBool("IsOn", false);
             foreach (GameObject Light in Lights)
             {
+
+                SwitchAudio.Play();
                 Light.SetActive(true);
+
                 
             }
             activator.activationLine = "Выключить";
@@ -54,9 +61,14 @@ public class Light_Switch : MonoBehaviour
             activator.activationLine = "Включить";
             foreach (GameObject Light in Lights)
             {
+                SwitchAudio.Play();
                 Light.SetActive(false);
             }
         }
     }
 
+    //public void PlaySound(AudioClip clip)
+    //{
+        //audioSource.PlayOneShot(clip);
+    //}
 }
