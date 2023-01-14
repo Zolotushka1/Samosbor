@@ -10,7 +10,7 @@ public class Light_Switch : MonoBehaviour
     //public Animator SwitchAnimator;
     public Activator activator;
     public bool isOn;
-    public AudioSource SwitchAudio;
+    
     
     void Start()
     {   
@@ -47,7 +47,7 @@ public class Light_Switch : MonoBehaviour
             foreach (GameObject Light in Lights)
             {
 
-                SwitchAudio.Play();
+                
                 Light.SetActive(true);
 
                 
@@ -61,7 +61,7 @@ public class Light_Switch : MonoBehaviour
             activator.activationLine = "¬ключить";
             foreach (GameObject Light in Lights)
             {
-                SwitchAudio.Play();
+                
                 Light.SetActive(false);
             }
         }
