@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class stats : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public static int Health;
+    public float maxHealth = 100f;
+    public static float Health;
     public int sceneL = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,10 @@ public class stats : MonoBehaviour
     {
         die();
     }
-    public static void GetDamage(int DAMAge)
+    public  void GetDamage(float DAMAge)
     {
         Health -= DAMAge;
-
+        UnityEngine.Debug.Log(Health);
     }
     void die()
     {

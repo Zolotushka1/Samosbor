@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+
     public Animator DoorAnimator;
     public bool isOpen;
     public Activator activator;

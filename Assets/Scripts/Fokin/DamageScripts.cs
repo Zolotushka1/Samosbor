@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DamageScripts : MonoBehaviour
 {
-
-    public int DAMAge = 16;
+    /*
+    public int DAMAge = 1;
     private void OnCollisionEnter(Collision collision)
     {
         stats.GetDamage(DAMAge);
-    }
+    }*/
 }
