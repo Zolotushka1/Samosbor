@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Activator : MonoBehaviour
 {
 	public string activationLine;
-    
+    public AudioSource AudioClip;
 
     public UnityEvent OnActivatedButtonDown;
     
@@ -19,7 +19,12 @@ public class Activator : MonoBehaviour
 	}
 	public void Activate()
 	{
-		OnActivatedButtonDown.Invoke();
+		if (AudioClip != null)
+		{
+            AudioClip.Play();
+        }
+			
+        OnActivatedButtonDown.Invoke();
 
 	}
 
