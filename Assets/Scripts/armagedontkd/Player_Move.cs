@@ -11,8 +11,10 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float minValueStamina;
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
+    [SerializeField] float staminaReturn2;
     private TMP_Text textStamina;
 
+    private bool isSquat;
     public bool AllStaminaSpentResently;
     public float speed_Move;
     public float speed_Run;
@@ -20,6 +22,7 @@ public class Player_Move : MonoBehaviour
     public float MinStaminaForRun;
     public float jump;
     public float gravity = 1;
+    public float speed_Run2;
     float x_Move;
     float z_Move;
     CharacterController player;
@@ -32,6 +35,7 @@ public class Player_Move : MonoBehaviour
         player = GetComponent<CharacterController>();
         textStamina = staminaSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         AllStaminaSpentResently = false;
+        isSquat = false;
     }
 
     void Update()
@@ -46,22 +50,57 @@ public class Player_Move : MonoBehaviour
     {
         x_Move = Input.GetAxis("Horizontal");
         z_Move = Input.GetAxis("Vertical");
-        if(player.isGrounded)
+        if (player.isGrounded)
         {
             move_Direction = new Vector3(x_Move, 0f, z_Move);
             move_Direction = transform.TransformDirection(move_Direction);
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 move_Direction.y += jump;
             }
-            if(Input.GetKey(KeyCode.LeftControl))
+            else if (Input.GetKey(KeyCode.LeftControl) && (isSquat == false) && (player.height > 1.4F))
+            {
+
+                player.height -= 0.1f;
+                
+            }
+            else if ((player.height < 1.8f) && (player.height > 1.4f) && (isSquat == false))
+            {
+                player.height -= 0.1f;
+                
+            }
+            else if ((player.height <= 1.4f) && (isSquat ==false))
+            {
+                isSquat = true;
+                speed_Run = speed_Move;
+                staminaReturn = 0;
+                UnityEngine.Debug.Log(isSquat);
+
+
+            }
+            else if ((isSquat = true) && (Input.GetKey(KeyCode.LeftControl)))
             {
                 player.height = 1.4f;
+
             }
-            else player.height = 1.8f;
+            else if ((player.height < 1.8f) && (isSquat == true))
+            {
+                player.height += 0.1f;
+                
+                
+            }
+            else
+            {
+                isSquat = false;
+                speed_Run = speed_Run2;
+                staminaReturn = staminaReturn2;
+                UnityEngine.Debug.Log(isSquat);
+
+            }
+
         }
         move_Direction.y -= gravity;
-        UnityEngine.Debug.Log(AllStaminaSpentResently);
+        
         if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue>= staminaReturn) && (AllStaminaSpentResently==false))
         { 
             speed_Current = speed_Run;
