@@ -11,18 +11,18 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float minValueStamina;
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
-    [SerializeField] float staminaReturn2;
+    [SerializeField] float staminaReturn2; // всегда должно быть равно speed_Run staminaReturn2
     private TMP_Text textStamina;
 
     private bool isSquat;
-    public bool AllStaminaSpentResently;
+    public bool AllStaminaSpentResently; // если стамина полностью потрачена, начать бег можно будет только с этого значения шкалы
     public float speed_Move;
     public float speed_Run;
     public float speed_Current;
     public float MinStaminaForRun;
     public float jump;
     public float gravity = 1;
-    public float speed_Run2;
+    public float speed_Run2; // всегда должно быть равно speed_Run
     float x_Move;
     float z_Move;
     CharacterController player;
@@ -71,10 +71,10 @@ public class Player_Move : MonoBehaviour
             }
             else if ((player.height <= 1.4f) && (isSquat ==false))
             {
-                isSquat = true;
+                isSquat = true; // игра понимает, что мы на кортах и блокирует бег и расход/реген стамины
                 speed_Run = speed_Move;
                 staminaReturn = 0;
-                UnityEngine.Debug.Log(isSquat);
+                
 
 
             }
@@ -91,10 +91,10 @@ public class Player_Move : MonoBehaviour
             }
             else
             {
-                isSquat = false;
+                isSquat = false; // игра понимает, что мы встали  и разблокирует бег и расход/реген стамины
                 speed_Run = speed_Run2;
                 staminaReturn = staminaReturn2;
-                UnityEngine.Debug.Log(isSquat);
+                
 
             }
 
@@ -108,7 +108,7 @@ public class Player_Move : MonoBehaviour
         }
         else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
         {
-            AllStaminaSpentResently = true;
+            AllStaminaSpentResently = true; // потратили всю стамину
             staminaValue += staminaReturn * Time.deltaTime * 1f;
             speed_Current = speed_Move;
         }
@@ -117,7 +117,7 @@ public class Player_Move : MonoBehaviour
             staminaValue += staminaReturn * Time.deltaTime * 2;
             if (staminaValue >= MinStaminaForRun)
             {
-                AllStaminaSpentResently=false;
+                AllStaminaSpentResently=false; // зарегенили стамину, разблокируется спринт
             }
         }
         else
