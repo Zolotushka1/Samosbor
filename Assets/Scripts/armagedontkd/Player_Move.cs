@@ -12,6 +12,7 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
     [SerializeField] float staminaReturn2;
+    [Range (0,10)] [SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
 
     private bool isSquat;
@@ -102,15 +103,15 @@ public class Player_Move : MonoBehaviour
         move_Direction.y -= gravity;
         
         if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue>= staminaReturn) && (AllStaminaSpentResently==false))
-        { 
-            speed_Current = speed_Run;
+        {
+            speed_Current = Mathf.Lerp(speed_Current, speed_Run, Time.deltaTime *smoothSpeed);
             staminaValue -= staminaReturn * Time.deltaTime * 10;
         }
         else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
         {
             AllStaminaSpentResently = true;
             staminaValue += staminaReturn * Time.deltaTime * 1f;
-            speed_Current = speed_Move;
+            speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
         }
         else if ((Input.GetKey(KeyCode.LeftShift)) && (AllStaminaSpentResently == true))
         {
@@ -122,7 +123,7 @@ public class Player_Move : MonoBehaviour
         }
         else
         {
-            speed_Current = speed_Move;
+            speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
             staminaValue += staminaReturn * Time.deltaTime * 2;
             if (staminaValue > 100)
             {

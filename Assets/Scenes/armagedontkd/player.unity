@@ -1032,6 +1032,7 @@ MonoBehaviour:
   maxValueStamina: 100
   staminaReturn: 2
   staminaReturn2: 2
+  smoothSpeed: 3
   AllStaminaSpentResently: 1
   speed_Move: 3
   speed_Run: 6
