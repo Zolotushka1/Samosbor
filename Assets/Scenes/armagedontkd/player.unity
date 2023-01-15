@@ -1027,13 +1027,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaSlider: {fileID: 847287603}
-  staminaValue: 0
+  staminaValue: 30
   minValueStamina: 0
   maxValueStamina: 100
-  staminaReturn: 4
-  speed_Move: 5
-  speed_Run: 10
+  staminaReturn: 2
+  AllStaminaSpentResently: 1
+  speed_Move: 3
+  speed_Run: 6
   speed_Current: 0
+  MinStaminaForRun: 20
   jump: 1.4
   gravity: 0.01
 --- !u!114 &1660234406

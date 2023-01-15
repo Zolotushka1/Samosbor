@@ -13,10 +13,11 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float staminaReturn;
     private TMP_Text textStamina;
 
-
+    public bool AllStaminaSpentResently;
     public float speed_Move;
     public float speed_Run;
     public float speed_Current;
+    public float MinStaminaForRun;
     public float jump;
     public float gravity = 1;
     float x_Move;
@@ -24,10 +25,13 @@ public class Player_Move : MonoBehaviour
     CharacterController player;
     Vector3 move_Direction;
 
+    
     void Start()
     {
+        
         player = GetComponent<CharacterController>();
         textStamina = staminaSlider.transform.GetChild(3).GetComponent<TMP_Text>();
+        AllStaminaSpentResently = false;
     }
 
     void Update()
@@ -57,16 +61,34 @@ public class Player_Move : MonoBehaviour
             else player.height = 1.8f;
         }
         move_Direction.y -= gravity;
-        
-        if(Input.GetKey(KeyCode.LeftShift))
+        UnityEngine.Debug.Log(AllStaminaSpentResently);
+        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue>= staminaReturn) && (AllStaminaSpentResently==false))
         { 
             speed_Current = speed_Run;
             staminaValue -= staminaReturn * Time.deltaTime * 10;
-        }   
+        }
+        else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
+        {
+            AllStaminaSpentResently = true;
+            staminaValue += staminaReturn * Time.deltaTime * 1f;
+            speed_Current = speed_Move;
+        }
+        else if ((Input.GetKey(KeyCode.LeftShift)) && (AllStaminaSpentResently == true))
+        {
+            staminaValue += staminaReturn * Time.deltaTime * 2;
+            if (staminaValue >= MinStaminaForRun)
+            {
+                AllStaminaSpentResently=false;
+            }
+        }
         else
         {
             speed_Current = speed_Move;
             staminaValue += staminaReturn * Time.deltaTime * 2;
+            if (staminaValue > 100)
+            {
+                staminaValue = 100;
+            }
         }
         player.Move(move_Direction * speed_Current * Time.deltaTime);
     }   
