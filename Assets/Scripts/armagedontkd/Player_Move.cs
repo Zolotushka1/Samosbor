@@ -75,7 +75,6 @@ public class Player_Move : MonoBehaviour
                 isSquat = true;
                 speed_Run = speed_Move;
                 staminaReturn = 0;
-                UnityEngine.Debug.Log(isSquat);
 
 
             }
@@ -95,7 +94,6 @@ public class Player_Move : MonoBehaviour
                 isSquat = false;
                 speed_Run = speed_Run2;
                 staminaReturn = staminaReturn2;
-                UnityEngine.Debug.Log(isSquat);
 
             }
 
