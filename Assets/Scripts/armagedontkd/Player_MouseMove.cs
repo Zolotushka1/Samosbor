@@ -14,6 +14,11 @@ public class Player_MouseMove: MonoBehaviour
     public float SmoothTime = 0.1f;
     float currentVelosityX;
     float currentVelosityY;
+    
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     void Update()
     {
