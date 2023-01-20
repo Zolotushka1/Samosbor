@@ -74,6 +74,7 @@ public class Player_Move : MonoBehaviour
             {
                 isSquat = true;
                 speed_Run = speed_Move;
+                
                 staminaReturn = 0;
 
 

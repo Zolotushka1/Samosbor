@@ -1907,6 +1907,22 @@ PrefabInstance:
       propertyPath: DeathMenu
       value: 
       objectReference: {fileID: 1689368093}
+    - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
+      propertyPath: DestroyOnDeath.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
+      propertyPath: DestroyOnDeath.Array.data[0]
+      value: 
+      objectReference: {fileID: 587923242}
+    - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
+      propertyPath: DestroyOnDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 847287601}
+    - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
+      propertyPath: DestroyOnDeath.Array.data[2]
+      value: 
+      objectReference: {fileID: 1620504157}
     - target: {fileID: 6485306391721647118, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
       propertyPath: m_Name
       value: Player

@@ -8,8 +8,9 @@ using TMPro;
 
 public class stats : MonoBehaviour
 {
-    [SerializeField] private GameObject UiCursor;
+    
     [SerializeField] Slider HpSlider;
+    [SerializeField] private GameObject[] DestroyOnDeath;
     public float maxHealth = 100f;
     public static float Health;
     public int sceneL = 0;
@@ -43,6 +44,10 @@ public class stats : MonoBehaviour
     public  void GetDamage(float DAMAge)
     {
         Health -= DAMAge;
+        if (Health < 0)
+        {
+            Health = 0;
+        }
         UnityEngine.Debug.Log(Health);
         if (Health < 1)
         {
@@ -53,13 +58,19 @@ public class stats : MonoBehaviour
     {
         if (Health < 1)
         {
+
             Quaternion rot = new Quaternion(0f, 0f, 0.05f, 1);
             Player.SetActive(false);
             Ragdoll.SetActive(true);
             Instantiate(Ragdoll, transform.position,rot );
-            UiCursor.SetActive(false);
+            
+                
             DeathMenu.SetActive(true);
             Cursor.visible = true;
+            foreach (GameObject ob in DestroyOnDeath)
+            {
+                ob.SetActive(false);
+            }
             Cursor.lockState = CursorLockMode.None;
             //SceneManager.LoadScene(sceneL);
         }
