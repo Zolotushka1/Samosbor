@@ -124,6 +124,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &33920582 stripped
 =======
 --- !u!1001 &4691746
@@ -184,6 +185,9 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 900a4cea5b0bc33479d270f41965b8e5, type: 3}
 --- !u!1 &8402016 stripped
+>>>>>>> origin/cospero
+=======
+--- !u!1 &33920582 stripped
 >>>>>>> origin/cospero
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1725874841261456149, guid: add050b06fcc5d148800134a24b26b7d, type: 3}
@@ -1571,6 +1575,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 0.1396486, y: 0.002940913, z: 0.071210615}
   m_Center: {x: 0.000000059604645, y: -0.000000029802322, z: -0.000000018626451}
 =======
@@ -1630,6 +1635,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.028050331, y: 0.13141428, z: 1.0098174e-15}
   m_Center: {x: 0, y: -0.000000029802322, z: 0}
+>>>>>>> origin/cospero
+=======
+  m_Size: {x: 0.1396486, y: 0.002940913, z: 0.071210615}
+  m_Center: {x: 0.000000059604645, y: -0.000000029802322, z: -0.000000018626451}
 >>>>>>> origin/cospero
 --- !u!1 &639368697
 GameObject:
@@ -6780,9 +6789,13 @@ Transform:
   - {fileID: 164390384}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
 =======
   m_RootOrder: 0
+>>>>>>> origin/cospero
+=======
+  m_RootOrder: 5
 >>>>>>> origin/cospero
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990893406 stripped
@@ -16110,9 +16123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationLine: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C"
 <<<<<<< HEAD
+<<<<<<< HEAD
   AudioClip: {fileID: 8075247174782279741}
 =======
   AudioClip: {fileID: 0}
+>>>>>>> origin/cospero
+=======
+  AudioClip: {fileID: 8075247174782279741}
 >>>>>>> origin/cospero
   OnActivatedButtonDown:
     m_PersistentCalls:
@@ -23149,6 +23166,9 @@ MonoBehaviour:
 AudioSource:
   m_ObjectHideFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/cospero
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -23187,6 +23207,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
+<<<<<<< HEAD
 =======
   serializedVersion: 2
   m_Modification:
@@ -23234,6 +23255,8 @@ AudioSource:
       objectReference: {fileID: 0}
     - target: {fileID: 8324549229730648254, guid: a9e3a31b20a242746bbb5c4e48dc5f7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+>>>>>>> origin/cospero
+=======
 >>>>>>> origin/cospero
       value: 0
       inSlope: 0
