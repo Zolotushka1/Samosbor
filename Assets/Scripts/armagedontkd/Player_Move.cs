@@ -11,7 +11,7 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float minValueStamina;
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
-    [SerializeField] float staminaReturn2;
+    //[SerializeField] float staminaReturn2;
     [Range (0,10)] [SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
 
@@ -23,9 +23,11 @@ public class Player_Move : MonoBehaviour
     public float MinStaminaForRun;
     public float jump;
     public float gravity = 1;
-    public float speed_Run2;
+    //public float speed_Run2;
     float x_Move;
     float z_Move;
+    float speed_Run2;
+    float staminaReturn2;
     CharacterController player;
     Vector3 move_Direction;
 
@@ -37,6 +39,8 @@ public class Player_Move : MonoBehaviour
         textStamina = staminaSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         AllStaminaSpentResently = false;
         isSquat = false;
+        speed_Run2 = speed_Run;
+        staminaReturn2 = staminaReturn;
     }
 
     void Update()

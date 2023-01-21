@@ -62,9 +62,10 @@ public class stats : MonoBehaviour
             Quaternion rot = new Quaternion(0f, 0f, 0.05f, 1);
             Player.SetActive(false);
             Ragdoll.SetActive(true);
-            Instantiate(Ragdoll, transform.position,rot );
+            Instantiate(Ragdoll, transform.position, rot);
             
-                
+
+
             DeathMenu.SetActive(true);
             Cursor.visible = true;
             foreach (GameObject ob in DestroyOnDeath)
