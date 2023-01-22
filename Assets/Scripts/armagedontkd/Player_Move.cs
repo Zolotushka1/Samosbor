@@ -32,7 +32,7 @@ public class Player_Move : MonoBehaviour
     
     void Start()
     {
-        
+        staminaSlider = GameObject.Find("StaminaSlider").GetComponent<Slider>();
         player = GetComponent<CharacterController>();
         textStamina = staminaSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         AllStaminaSpentResently = false;
