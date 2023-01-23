@@ -81,7 +81,7 @@ public class Player_Move : MonoBehaviour
             }
             else if ((isSquat = true) && (Input.GetKey(KeyCode.LeftControl)))
             {
-                player.height = 1.4f;
+                player.height = 1f;
 
             }
             else if ((player.height < 1.8f) && (isSquat == true))
