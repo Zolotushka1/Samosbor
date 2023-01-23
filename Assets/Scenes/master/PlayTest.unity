@@ -9377,7 +9377,7 @@ Transform:
   m_GameObject: {fileID: 3307646326054256571}
   m_LocalRotation: {x: -0.00000030626617, y: 0.7071068, z: 0.70710677, w: 0.00000030626617}
   m_LocalPosition: {x: -3.8725438, y: 5.6385508, z: -12.865859}
-  m_LocalScale: {x: 55.790855, y: 100, z: 100}
+  m_LocalScale: {x: 92, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653703991497}
@@ -10657,7 +10657,7 @@ Transform:
   m_GameObject: {fileID: 2501848140868275147}
   m_LocalRotation: {x: -0.00000030626617, y: 0.7071068, z: 0.70710677, w: 0.00000030626617}
   m_LocalPosition: {x: -3.8725438, y: 5.6385508, z: -25.932272}
-  m_LocalScale: {x: 55.790855, y: 100, z: 100}
+  m_LocalScale: {x: 92, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653703991497}
@@ -12142,7 +12142,7 @@ Transform:
   m_GameObject: {fileID: 2377999072211020693}
   m_LocalRotation: {x: -0.00000030626617, y: 0.7071068, z: 0.70710677, w: 0.00000030626617}
   m_LocalPosition: {x: -3.8725438, y: 5.6385508, z: -39.005722}
-  m_LocalScale: {x: 55.790855, y: 100, z: 100}
+  m_LocalScale: {x: 92, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653703991497}
@@ -16874,7 +16874,7 @@ Transform:
   m_GameObject: {fileID: 4952182824564353264}
   m_LocalRotation: {x: -0.00000030626614, y: 0.7071068, z: 0.70710677, w: 0.00000030626617}
   m_LocalPosition: {x: -3.8725438, y: 5.6385508, z: -51.33662}
-  m_LocalScale: {x: 55.790855, y: 87.66407, z: 100}
+  m_LocalScale: {x: 92, y: 87.66407, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653703991497}
@@ -19040,7 +19040,7 @@ Transform:
   m_GameObject: {fileID: 7209663660464635737}
   m_LocalRotation: {x: -0.00000030626617, y: 0.7071068, z: 0.70710677, w: 0.00000030626617}
   m_LocalPosition: {x: -3.8725438, y: 5.6385508, z: 0.2678076}
-  m_LocalScale: {x: 55.790855, y: 100, z: 100}
+  m_LocalScale: {x: 92, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653703991497}
