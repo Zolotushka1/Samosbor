@@ -105,12 +105,12 @@ public class Player_Move : MonoBehaviour
         }
         move_Direction.y -= gravity;
         
-        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue>= staminaReturn) && (AllStaminaSpentResently==false))
+        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> 10) && (AllStaminaSpentResently==false))
         {
             speed_Current = Mathf.Lerp(speed_Current, speed_Run, Time.deltaTime *smoothSpeed);
             staminaValue -= staminaReturn * Time.deltaTime * 10;
         }
-        else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
+        else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= 10)&& (AllStaminaSpentResently==false))
         {
             AllStaminaSpentResently = true;
             staminaValue += staminaReturn * Time.deltaTime * 1f;

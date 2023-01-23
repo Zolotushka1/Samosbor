@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Security.Permissions;
 
 public class stats : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class stats : MonoBehaviour
     public GameObject Player;
     public GameObject Ragdoll;
     public GameObject DeathMenu;
-    
+    public GameObject DamageOverlay;
+    private Coroutine globalCoroutineHandle;
     private TMP_Text textHp;
 
 
@@ -28,6 +30,7 @@ public class stats : MonoBehaviour
     {
         textHp = HpSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         Health = maxHealth;
+        
     }
 
     // Update is called once per frame
@@ -48,22 +51,32 @@ public class stats : MonoBehaviour
         {
             Health = 0;
         }
+        
+        if (globalCoroutineHandle != null)
+            StopCoroutine(globalCoroutineHandle);
+        globalCoroutineHandle = StartCoroutine(DamageOverlayPlay());
+        
+
+
         UnityEngine.Debug.Log(Health);
         if (Health < 1)
         {
             die();
         }
+        
     }
     void die()
     {
         if (Health < 1)
         {
 
-            Quaternion rot = new Quaternion(0f, 0f, 0.05f, 1);
+            var rot = Quaternion.Euler(0, 0, 10);
             Player.SetActive(false);
             Ragdoll.SetActive(true);
-            Instantiate(Ragdoll, transform.position, rot);
-            
+            var newRagdoll = Instantiate(Ragdoll, transform.position, transform.rotation);
+            newRagdoll.transform.Rotate(0, 0, 1);
+            newRagdoll.SetActive(true);
+
 
 
             DeathMenu.SetActive(true);
@@ -77,6 +90,14 @@ public class stats : MonoBehaviour
         }
     }
 
+    private IEnumerator DamageOverlayPlay()
+    {
+        DamageOverlay.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+        DamageOverlay.SetActive(false);
+        
+    }
     private void HpShow()
     {
 
