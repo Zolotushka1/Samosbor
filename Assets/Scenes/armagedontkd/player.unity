@@ -1282,6 +1282,11 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1446026178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1296174965909176052, guid: 497c04541fb241b4d84d10b4b10866cd, type: 3}
+  m_PrefabInstance: {fileID: 1689368092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1578249815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1912,10 @@ PrefabInstance:
       propertyPath: DeathMenu
       value: 
       objectReference: {fileID: 1888062350}
+    - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
+      propertyPath: DamageOverlay
+      value: 
+      objectReference: {fileID: 1446026178}
     - target: {fileID: 6485306391721647107, guid: f12688d044d03d74ba1423fdb9dd9e88, type: 3}
       propertyPath: DestroyOnDeath.Array.size
       value: 3
