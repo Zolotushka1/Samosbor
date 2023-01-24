@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1); //От Жени: поменял сцену 0 на сцену 1 для билда проекта
     }
 
     public void Quit()
