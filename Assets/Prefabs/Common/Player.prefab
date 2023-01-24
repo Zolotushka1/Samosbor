@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1725874842004139156}
   - component: {fileID: 1725874842004139163}
-  - component: {fileID: 1725874842004139162}
   - component: {fileID: 1725874842004139161}
   m_Layer: 0
   m_Name: Player
@@ -137,22 +136,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1725874842004139162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725874842004139160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2efc5c5534d748816a6c76c972c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1725874841261456150}
-  playerGameObject: {fileID: 1725874842004139160}
-  sensitivity: 5
-  SmoothTime: 0.1
 --- !u!114 &1725874842004139161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +153,6 @@ MonoBehaviour:
   minValueStamina: 0
   maxValueStamina: 100
   staminaReturn: 2
-  staminaReturn2: 2
   smoothSpeed: 3
   AllStaminaSpentResently: 1
   speed_Move: 3
@@ -179,4 +161,3 @@ MonoBehaviour:
   MinStaminaForRun: 20
   jump: 1.4
   gravity: 0.01
-  speed_Run2: 6

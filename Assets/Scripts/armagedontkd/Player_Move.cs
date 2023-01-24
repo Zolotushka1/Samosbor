@@ -11,6 +11,7 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float minValueStamina;
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
+    [SerializeField] float staminaSpent;
     //[SerializeField] float staminaReturn2;
     [Range (0,10)] [SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
@@ -85,7 +86,7 @@ public class Player_Move : MonoBehaviour
             }
             else if ((isSquat = true) && (Input.GetKey(KeyCode.LeftControl)))
             {
-                player.height = 1f;
+                player.height = 0.7f;
 
             }
             else if ((player.height < 1.8f) && (isSquat == true))
@@ -105,19 +106,23 @@ public class Player_Move : MonoBehaviour
         }
         move_Direction.y -= gravity;
         
-        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> 10) && (AllStaminaSpentResently==false))
+        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> staminaReturn) && (AllStaminaSpentResently==false))
         {
             speed_Current = Mathf.Lerp(speed_Current, speed_Run, Time.deltaTime *smoothSpeed);
-            staminaValue -= staminaReturn * Time.deltaTime * 10;
+            staminaValue -= staminaSpent * Time.deltaTime * 10;
+
         }
-        else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= 10)&& (AllStaminaSpentResently==false))
+        else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
         {
             AllStaminaSpentResently = true;
+            UnityEngine.Debug.Log(AllStaminaSpentResently);
             staminaValue += staminaReturn * Time.deltaTime * 1f;
             speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
+            
         }
         else if ((Input.GetKey(KeyCode.LeftShift)) && (AllStaminaSpentResently == true))
         {
+            speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
             staminaValue += staminaReturn * Time.deltaTime * 2;
             if (staminaValue >= MinStaminaForRun)
             {
