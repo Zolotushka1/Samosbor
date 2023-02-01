@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Activator : MonoBehaviour
 {
-	public string activationLine;
+	[TextArea (2,5)] public string  activationLine;
     public AudioSource AudioClip;
 
     public UnityEvent OnActivatedButtonDown;
