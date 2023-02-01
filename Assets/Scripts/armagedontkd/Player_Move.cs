@@ -11,7 +11,8 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float minValueStamina;
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
-    [SerializeField] float staminaReturn2;
+    [SerializeField] float staminaSpent;
+    //[SerializeField] float staminaReturn2;
     [Range (0,10)] [SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
 
@@ -23,9 +24,11 @@ public class Player_Move : MonoBehaviour
     public float MinStaminaForRun;
     public float jump;
     public float gravity = 1;
-    public float speed_Run2;
+    //public float speed_Run2;
     float x_Move;
     float z_Move;
+    float speed_Run2;
+    float staminaReturn2;
     CharacterController player;
     Vector3 move_Direction;
 
@@ -37,6 +40,8 @@ public class Player_Move : MonoBehaviour
         textStamina = staminaSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         AllStaminaSpentResently = false;
         isSquat = false;
+        speed_Run2 = speed_Run;
+        staminaReturn2 = staminaReturn;
     }
 
     void Update()
@@ -74,14 +79,14 @@ public class Player_Move : MonoBehaviour
             {
                 isSquat = true;
                 speed_Run = speed_Move;
+                
                 staminaReturn = 0;
-                UnityEngine.Debug.Log(isSquat);
 
 
             }
             else if ((isSquat = true) && (Input.GetKey(KeyCode.LeftControl)))
             {
-                player.height = 1.4f;
+                player.height = 0.7f;
 
             }
             else if ((player.height < 1.8f) && (isSquat == true))
@@ -95,26 +100,29 @@ public class Player_Move : MonoBehaviour
                 isSquat = false;
                 speed_Run = speed_Run2;
                 staminaReturn = staminaReturn2;
-                UnityEngine.Debug.Log(isSquat);
 
             }
 
         }
         move_Direction.y -= gravity;
         
-        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue>= staminaReturn) && (AllStaminaSpentResently==false))
+        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> staminaReturn) && (AllStaminaSpentResently==false))
         {
             speed_Current = Mathf.Lerp(speed_Current, speed_Run, Time.deltaTime *smoothSpeed);
-            staminaValue -= staminaReturn * Time.deltaTime * 10;
+            staminaValue -= staminaSpent * Time.deltaTime * 10;
+
         }
         else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
         {
             AllStaminaSpentResently = true;
+            UnityEngine.Debug.Log(AllStaminaSpentResently);
             staminaValue += staminaReturn * Time.deltaTime * 1f;
             speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
+            
         }
         else if ((Input.GetKey(KeyCode.LeftShift)) && (AllStaminaSpentResently == true))
         {
+            speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
             staminaValue += staminaReturn * Time.deltaTime * 2;
             if (staminaValue >= MinStaminaForRun)
             {
