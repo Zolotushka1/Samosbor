@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 462381581}
   - component: {fileID: 462381580}
   - component: {fileID: 462381587}
+  - component: {fileID: 462381588}
   - component: {fileID: 462381586}
   m_Layer: 0
   m_Name: Player
@@ -475,6 +476,22 @@ MonoBehaviour:
   Ragdoll: {fileID: 7915563823266015196, guid: 6e4b79f750a30f446a6169b1acd032f6, type: 3}
   DeathMenu: {fileID: 1348932310}
   DamageOverlay: {fileID: 836158332}
+--- !u!114 &462381588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462381579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6767f23b3eb9c45b5a83574916b4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 768511814}
+  playerGameObject: {fileID: 462381579}
+  sensitivity: 5
+  SmoothTime: 0.1
 --- !u!1 &493836809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1022,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!20 &768511814 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8031313622650703720, guid: a9157f37f2be32c4081cf763ad508281, type: 3}
+  m_PrefabInstance: {fileID: 392319393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &836158332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1296174965909176052, guid: 497c04541fb241b4d84d10b4b10866cd, type: 3}

@@ -14,23 +14,13 @@ public class CAAAAM : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        _currentVerticalAngle = transform.localRotation.eulerAngles.x;
-        if (_currentVerticalAngle > _verticalLover)
-        {
-            _currentVerticalAngle -= 360;
-            if (_currentVerticalAngle < _verticalUpper)
-            {
-                _currentVerticalAngle = 0;
-                Debug.LogWarning($"Угол на {name} выходит за пределы [{_verticalUpper}, {_verticalLover}]");
-            }
-        }
     }
 
 
     void Update()
-    {       
-        var vertical = -Input.GetAxis("Mouse Y") * _sensivity * Time.deltaTime;
+    {
+        
+            var vertical = -Input.GetAxis("Mouse Y") * _sensivity * Time.deltaTime;
         var horizontal = Input.GetAxis("Mouse X") * _sensivity * Time.deltaTime;
 
         _currentVerticalAngle = Mathf.Clamp(_currentVerticalAngle + vertical, _verticalUpper, _verticalLover);
