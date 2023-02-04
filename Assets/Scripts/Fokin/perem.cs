@@ -20,7 +20,7 @@ public class perem : MonoBehaviour
     }
     IEnumerator nmat()
     {
-        yield return new WaitForSeconds(TimeLi);
+        yield return new WaitForSeconds(timeLi);
         Destroy(gameObject);
     }
 
