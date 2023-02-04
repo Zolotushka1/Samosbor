@@ -713,6 +713,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a49f447005d21440a48f095d441112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &913383766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2237102940367634180, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
+  m_PrefabInstance: {fileID: 2237102941077577299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd195c04ec3ae0d4991f2af77cceda98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956675535
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,23 +954,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 473321994329427834, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
   m_PrefabInstance: {fileID: 1802013299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1185198600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185198599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd195c04ec3ae0d4991f2af77cceda98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 1095915901}
-  qualityDropdown: {fileID: 1938592228}
-  mouseSensitivity: {fileID: 1552593285}
-  _menuPanel: {fileID: 1127741748}
-  _settingsPanel: {fileID: 1185198599}
 --- !u!114 &1552593285 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 473321995084331912, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
@@ -1076,6 +1070,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185198600, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: _menuPanel
+      value: 
+      objectReference: {fileID: 1127741748}
     - target: {fileID: 473321994329427834, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
       propertyPath: m_Name
       value: Settings
@@ -1164,8 +1162,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+    - target: {fileID: 473321994736049045, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 913383766}
+    - target: {fileID: 473321994986663158, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
 --- !u!114 &1938592228 stripped
 MonoBehaviour:
@@ -1287,6 +1292,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2237102940367634180, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
+      propertyPath: _menuPanel
+      value: 
+      objectReference: {fileID: 1127741748}
+    - target: {fileID: 2237102940367634180, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
+      propertyPath: _settingsPanel
+      value: 
+      objectReference: {fileID: 1185198599}
+    - target: {fileID: 2237102940367634180, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
       propertyPath: qualityDropdown
       value: 
       objectReference: {fileID: 1938592228}
@@ -1350,6 +1363,14 @@ PrefabInstance:
       propertyPath: _settingsPanel
       value: 
       objectReference: {fileID: 1185198599}
+    - target: {fileID: 2237102940367634182, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
+      propertyPath: DestroyOnOpen.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237102940367634182, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
+      propertyPath: DestroyOnOpen.Array.data[0]
+      value: 
+      objectReference: {fileID: 847287601}
     - target: {fileID: 2237102940367634183, guid: b573eb0afce22ab4b952e710e21a2ddb, type: 3}
       propertyPath: m_Name
       value: MenuManager
