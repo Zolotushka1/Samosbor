@@ -20,10 +20,10 @@ public class Flashlight : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             Invoke("TurnOnFlashlight", 1f);
-            /*flashlightOn = !flashlightOn;
-            flashlightLight.enabled = flashlightOn;
-            flashlightObject.SetActive(flashlightOn);*/
-
+        }
+        if (flashlightOn)
+        {
+            flashlightObject.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
         }
     }
     private void TurnOnFlashlight()

@@ -1218,7 +1218,15 @@ PrefabInstance:
     - target: {fileID: 473321994986663158, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 473321994329427839, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      objectReference: {fileID: 913383766}
+    - target: {fileID: 473321994986663158, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 473321994986663158, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PausedMenuSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9577560127cefba438ebf4de0a9a8cdc, type: 3}
 --- !u!114 &1938592228 stripped
