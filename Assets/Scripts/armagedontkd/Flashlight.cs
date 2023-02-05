@@ -17,7 +17,7 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Invoke("TurnOnFlashlight", 1f);
             /*flashlightOn = !flashlightOn;
