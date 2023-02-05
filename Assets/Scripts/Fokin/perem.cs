@@ -6,12 +6,24 @@ using UnityEngine;
 public class perem : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float tine;
     public float speed;
     public Vector3 dir;
-    void FixedUpdate ()
+    void Start()
+    {
+        StartCoroutine(oble());
+
+    }
+    void FixedUpdate()
+
     {
         transform.Translate(speed * dir * Time.deltaTime);
     }
+    IEnumerator oble()
+    {
+        yield return new WaitForSeconds(tine);
+        Destroy(gameObject);
 
 
+    }
 }
