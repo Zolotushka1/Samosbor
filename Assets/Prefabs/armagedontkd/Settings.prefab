@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 473321994329427833}
   - component: {fileID: 473321994329427832}
   - component: {fileID: 473321994329427835}
-  - component: {fileID: 473321994329427839}
+  - component: {fileID: 1185198600}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &473321994329427839
+--- !u!114 &1185198600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -773,12 +773,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 473321994329427834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a567576a4fe01408c42b9e7a87ca1f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd195c04ec3ae0d4991f2af77cceda98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 473321996014510598}
   qualityDropdown: {fileID: 473321994998249548}
   mouseSensitivity: {fileID: 473321995084331912}
+  _menuPanel: {fileID: 0}
+  _settingsPanel: {fileID: 473321994329427834}
 --- !u!1 &473321994342265396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,9 +1638,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+        m_TargetAssemblyTypeName: PausedMenuSettings, Assembly-CSharp
+        m_MethodName: ExitSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1646,18 +1648,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 473321994329427834}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &473321994781425118
 GameObject:
@@ -2280,7 +2270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 473321994329427839}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuSettings, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
