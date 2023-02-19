@@ -7,11 +7,14 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject UIPanel;
+    //private GameObject player;
     public Transform inventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
     public bool isOpened;
     private Camera mainCamera;
     public float reachDistance = 3f;
+    private Player_MouseMove mouseMove;
+    [SerializeField] private GameObject[] DestroyOnOpen;
 
     private void Awake()
     {
@@ -33,25 +36,42 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
+        GameObject player = GameObject.Find("Player 1");
+        mouseMove = player.GetComponent<Player_MouseMove>();
         if(Input.GetKeyDown(KeyCode.I))
         {
             isOpened= !isOpened;
-            if(isOpened)
+            if(isOpened)            
             {
-                 UIPanel.SetActive(true);
+                UIPanel.SetActive(true);
+                mouseMove.enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                foreach (GameObject ob in DestroyOnOpen)
+                {
+                    ob.SetActive(false);
+                }
             }
             else
             {
                 UIPanel.SetActive(false);
+                mouseMove.enabled = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                foreach (GameObject ob in DestroyOnOpen)
+                {
+                    ob.SetActive(true);
+                }
             }
         }
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray,out hit, reachDistance))
+        
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Physics.Raycast(ray, out hit, reachDistance))
             {
-
+            
                 if (hit.collider.gameObject.GetComponent<Item>() != null)
                 {
                     AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
@@ -66,9 +86,13 @@ public class InventoryManager : MonoBehaviour
         {
             if(slot.item == _item)
             {
-                slot.amount += _amount;
-                slot.itemAmountText.text = slot.amount.ToString();
-                return;
+                if(slot.amount + _amount <= _item.maximumAmount)
+                {
+                    slot.amount += _amount;
+                    slot.itemAmountText.text = slot.amount.ToString();
+                    return;
+                }
+                break;
             }
         }
         foreach (InventorySlot slot in slots)
