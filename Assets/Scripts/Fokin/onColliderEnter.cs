@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class onColliderEnter : MonoBehaviour
 {   
+
     public GameObject Door;
+    public Collider Player
     public GameObject dim;
     public AudioClip ZVYK;
     public GameObject ObjecticAudio;
     
-    private bool isColliderEnter=false;
-    void OnTriggerEnter(Collider other)
+    
+    void OnTriggerEnter(Collider Player)
     {
-        if ((other.tag == "Player")&(isColliderEnter==false)&(Door.GetComponent<Door>().isOpen==true))
         {
-            isColliderEnter=true;
             Door.GetComponent<Door>().Interact();
             ObjecticAudio.GetComponent<AudioSource>().PlayOneShot(ZVYK);
             Destroy(dim);
