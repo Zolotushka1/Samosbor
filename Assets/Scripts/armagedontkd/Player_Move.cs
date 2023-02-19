@@ -29,7 +29,7 @@ public class Player_Move : MonoBehaviour
     float z_Move;
     float speed_Run2;
     float staminaReturn2;
-    CharacterController player;
+    public CharacterController player;
     Vector3 move_Direction;
 
     

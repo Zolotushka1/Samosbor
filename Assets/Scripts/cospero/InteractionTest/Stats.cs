@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Security.Permissions;
 
-public class stats : MonoBehaviour
+public class Stats : MonoBehaviour
 {
     
     [SerializeField] Slider HpSlider;
     [SerializeField] private GameObject[] DestroyOnDeath;
     public float maxHealth = 100f;
-    public static float Health;
+    public  float Health;
     public int sceneL = 0;
     public GameObject Player;
     public GameObject Ragdoll;
