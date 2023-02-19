@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        GameObject player = GameObject.Find("Player 1");
+        GameObject player = GameObject.Find("Player");
         mouseMove = player.GetComponent<Player_MouseMove>();
         if(Input.GetKeyDown(KeyCode.I))
         {
@@ -66,7 +66,8 @@ public class InventoryManager : MonoBehaviour
         }
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(ray, out hit, reachDistance))
@@ -80,6 +81,44 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void RemoveItemFromSlot(int slotId)
+    {
+        InventorySlot slot=slots[slotId];
+
+        slot.item=null;
+        slot.isEmpty=true;
+        slot.amount=0;
+        slot.iconGO.GetComponent<Image>().color=new Color(r:1,g:1,b:1,a:0);
+        slot.iconGO.GetComponent<Image>().sprite=null;
+        slot.itemAmountText.text="";
+    }
+    public void AddItemToSlot(ItemScriptableObject _item, int _amount, int slodId)
+    {
+        InventorySlot slot=slots[slodId];
+        slot.item=_item;
+        slot.isEmpty=false;
+        slot.SetIcon(_item.icon);
+        if (_amount<=_item.maximumAmount)
+        {
+            slot.amount=_amount;
+            if (slot.item.maximumAmount !=1)
+            {
+                slot.itemAmountText.text=slot.amount.ToString();
+            }
+        }
+
+        else
+        {
+            slot.amount=_item.maximumAmount;
+            _amount-=_item.maximumAmount;
+            if(slot.item.maximumAmount !=1)
+            {
+                slot.itemAmountText.text=slot.amount.ToString();
+            }
+        }
+    }
+
     private void AddItem(ItemScriptableObject _item, int _amount)
     {
         foreach(InventorySlot slot in slots)

@@ -717,6 +717,7 @@ MonoBehaviour:
   MinStaminaForRun: 20
   jump: 1
   gravity: 0.01
+  player: {fileID: 0}
 --- !u!143 &462381590
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2015,6 +2016,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3285853563962554578, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 811.1332
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285853563962554578, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 614.1677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285853563962554578, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25.2876
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285853563962554578, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94.489044
+      objectReference: {fileID: 0}
     - target: {fileID: 3285853563962554579, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
       propertyPath: m_CellSize.x
       value: 60
@@ -2830,7 +2847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4212ad118f4fd6409ebfd05e8e7429f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savingEnvironment: {fileID: 1070895009}
 --- !u!114 &1168527459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2844,7 +2860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _indicators: {fileID: 0}
-  player: {fileID: 462381589}
+  player_Move: {fileID: 0}
   _inventoryManager: {fileID: 0}
 --- !u!4 &1168527460
 Transform:
