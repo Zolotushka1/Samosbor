@@ -1056,26 +1056,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3771174907007539676, guid: 36caf3e0a3134e74e9a5f144f39ea228, type: 3}
   m_PrefabInstance: {fileID: 6721872308925946063}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &454717190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454717182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824e6128ea359204f8e6c7c1629553e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HpSlider: {fileID: 0}
-  DestroyOnDeath: []
-  maxHealth: 100
-  sceneL: 0
-  Player: {fileID: 0}
-  Ragdoll: {fileID: 0}
-  DeathMenu: {fileID: 0}
-  DamageOverlay: {fileID: 0}
 --- !u!1001 &516221976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6080,7 +6060,7 @@ PrefabInstance:
       objectReference: {fileID: 847287603}
     - target: {fileID: 3771174907007539664, guid: 36caf3e0a3134e74e9a5f144f39ea228, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3771174907007539676, guid: 36caf3e0a3134e74e9a5f144f39ea228, type: 3}
       propertyPath: m_RootOrder

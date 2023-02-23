@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        GameObject player = GameObject.Find("Player 1");
+        GameObject player = GameObject.Find("Player");
         mouseMove = player.GetComponent<Player_MouseMove>();
         if(Input.GetKeyDown(KeyCode.I))
         {
