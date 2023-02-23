@@ -6,6 +6,15 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    private static InventoryManager _staticInstance;
+    public static void Hide() { _staticInstance.gameObject.SetActive(false); }
+    public static void Show() { _staticInstance.gameObject.SetActive(true); }
+    private void Awake()
+    {
+        _staticInstance = this;
+        UIPanel.SetActive(true);
+    }
+
     public GameObject UIPanel;
     //private GameObject player;
     public Transform inventoryPanel;
@@ -15,11 +24,6 @@ public class InventoryManager : MonoBehaviour
     public float reachDistance = 3f;
     private Player_MouseMove mouseMove;
     [SerializeField] private GameObject[] DestroyOnOpen;
-
-    private void Awake()
-    {
-        UIPanel.SetActive(true);
-    }
 
     void Start()
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-/// IPointerDownHandler - Следит за нажатиями мышки по объекту на котором висит этот скрипт
-/// IPointerUpHandler - Следит за отпусканием мышки по объекту на котором висит этот скрипт
-/// IDragHandler - Следит за тем не водим ли мы нажатую мышку по объекту
+/// IPointerDownHandler - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+/// IPointerUpHandler - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+/// IDragHandler - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     public InventorySlot oldSlot;
@@ -14,14 +14,14 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private void Start()
     {
-        //ПОСТАВЬТЕ ТЭГ "PLAYER" НА ОБЪЕКТЕ ПЕРСОНАЖА!
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "PLAYER" пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        // Находим скрипт InventorySlot в слоте в иерархии
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ InventorySlot пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         oldSlot = transform.GetComponentInParent<InventorySlot>();
     }
     public void OnDrag(PointerEventData eventData)
     {
-        // Если слот пустой, то мы не выполняем то что ниже return;
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ return;
         if (oldSlot.isEmpty)
             return;
         GetComponent<RectTransform>().position += new Vector3(eventData.delta.x, eventData.delta.y);
@@ -31,11 +31,16 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         if (oldSlot.isEmpty)
             return;
-        //Делаем картинку прозрачнее
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            InventoryManager.Hide();
+            ItemDetails.ActivateWith(oldSlot.item);
+        }
+        //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0.75f);
-        // Делаем так чтобы нажатия мышкой не игнорировали эту картинку
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         GetComponentInChildren<Image>().raycastTarget = false;
-        // Делаем наш DraggableObject ребенком InventoryPanel чтобы DraggableObject был над другими слотами инвенторя
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ DraggableObject пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ InventoryPanel пїЅпїЅпїЅпїЅпїЅ DraggableObject пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         transform.SetParent(transform.parent.parent);
     }
 
@@ -43,34 +48,34 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         if (oldSlot.isEmpty)
             return;
-        // Делаем картинку опять не прозрачной
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1f);
-        // И чтобы мышка опять могла ее засечь
+        // пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         GetComponentInChildren<Image>().raycastTarget = true;
 
-        //Поставить DraggableObject обратно в свой старый слот
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ DraggableObject пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         transform.SetParent(oldSlot.transform);
         transform.position = oldSlot.transform.position;
-        //Если мышка отпущена над объектом по имени UIPanel, то...
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ UIPanel, пїЅпїЅ...
         if (eventData.pointerCurrentRaycast.gameObject.name == "UIPanel")
         {
-            // Выброс объектов из инвентаря - Спавним префаб обекта перед персонажем
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             GameObject itemObject = Instantiate(oldSlot.item.itemPrefab, player.position + Vector3.up + player.forward, Quaternion.identity);
-            // Устанавливаем количество объектов такое какое было в слоте
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
             itemObject.GetComponent<Item>().amount = oldSlot.amount;
-            // убираем значения InventorySlot
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ InventorySlot
             NullifySlotData();
         }
         else if (eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>() != null)
         {
-            //Перемещаем данные из одного слота в другой
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             ExchangeSlotData(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>());
         }
 
     }
     void NullifySlotData()
     {
-        // убираем значения InventorySlot
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ InventorySlot
         oldSlot.item = null;
         oldSlot.amount = 0;
         oldSlot.isEmpty = true;
@@ -80,14 +85,14 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     void ExchangeSlotData(InventorySlot newSlot)
     {
-        // Временно храним данные newSlot в отдельных переменных
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ newSlot пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         ItemScriptableObject item = newSlot.item;
         int amount = newSlot.amount;
         bool isEmpty = newSlot.isEmpty;
         GameObject iconGO = newSlot.iconGO;
         TMP_Text itemAmountText = newSlot.itemAmountText;
 
-        // Заменяем значения newSlot на значения oldSlot
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ newSlot пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ oldSlot
         newSlot.item = oldSlot.item;
         newSlot.amount = oldSlot.amount;
         if (oldSlot.isEmpty == false)
@@ -104,7 +109,7 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         newSlot.isEmpty = oldSlot.isEmpty;
 
-        // Заменяем значения oldSlot на значения newSlot сохраненные в переменных
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ oldSlot пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ newSlot пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         oldSlot.item = item;
         oldSlot.amount = amount;
         if (isEmpty == false)
