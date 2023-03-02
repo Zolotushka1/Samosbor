@@ -14,7 +14,7 @@ public class Zadacha : MonoBehaviour
     void OnTriggerEnter(Collider Player)
     {
         Missiontmp.text = MissionText;
-        NameMissiontmp.text = NameMissionText;\
+        NameMissiontmp.text = NameMissionText;
         Destroy(gameObject);
     }
 }
