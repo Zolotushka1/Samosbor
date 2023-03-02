@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class onColliderEnter : MonoBehaviour
-{   
+{
 
     public GameObject Door;
-    public Collider Player
+    public Collider Player;
     public GameObject dim;
     public AudioClip ZVYK;
     public GameObject ObjecticAudio;
-    
-    
+
+
     void OnTriggerEnter(Collider Player)
     {
         {
@@ -21,10 +21,10 @@ public class onColliderEnter : MonoBehaviour
             Destroy(gameObject);
 
         }
-        
-    }
-    
-    
 
-    
+    }
+
+
+
+
 }
