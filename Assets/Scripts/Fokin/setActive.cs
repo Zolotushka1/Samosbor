@@ -15,11 +15,6 @@ public class setActive : MonoBehaviour
             obj.SetActive(true);
             Destroy(gameObject);
         }
-        if (obj == true)
-        {
-            obj.SetActive(false);
-            Destroy(gameObject);
-        }
 
     }
 }
