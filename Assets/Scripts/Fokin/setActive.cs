@@ -5,7 +5,7 @@ using UnityEngine;
 public class setActive : MonoBehaviour
 {
     public Collider Player;
-    [SerializeField] private GameObject obj;
+    public GameObject obj;
 
     void OnTriggerEnter(Collider Player)
 

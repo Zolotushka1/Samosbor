@@ -29,7 +29,7 @@ public class EnemyAi : MonoBehaviour
     //Find player and chase
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;    // check Player name and change "PlayerObj" !!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!
+        player = GameObject.Find("Player").transform;    // check Player name and change "PlayerObj" !!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!
         agent = GetComponent<NavMeshAgent>();
     }
 
