@@ -12,6 +12,8 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
     [SerializeField] float staminaSpent;
+    [SerializeField] private new AudioSource audio;
+    [SerializeField] private AudioClip impact;
     //[SerializeField] float staminaReturn2;
     [Range (0,10)] [SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
@@ -42,6 +44,7 @@ public class Player_Move : MonoBehaviour
         isSquat = false;
         speed_Run2 = speed_Run;
         staminaReturn2 = staminaReturn;
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -63,6 +66,7 @@ public class Player_Move : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 move_Direction.y += jump;
+                audio.PlayOneShot(impact, 0.7F);
             }
             else if (Input.GetKey(KeyCode.LeftControl) && (isSquat == false) && (player.height > 1.4F))
             {

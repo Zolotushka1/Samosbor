@@ -4,24 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-/// IPointerDownHandler - ������ �� ��������� ����� �� ������� �� ������� ����� ���� ������
-/// IPointerUpHandler - ������ �� ����������� ����� �� ������� �� ������� ����� ���� ������
-/// IDragHandler - ������ �� ��� �� ����� �� �� ������� ����� �� �������
+
 public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     public InventorySlot oldSlot;
     public Transform player;
-
+    [SerializeField] private Image image;
     private void Start()
     {
-        //��������� ��� "PLAYER" �� ������� ���������!
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        // ������� ������ InventorySlot � ����� � ��������
-        oldSlot = transform.GetComponentInParent<InventorySlot>();
     }
     public void OnDrag(PointerEventData eventData)
     {
-        // ���� ���� ������, �� �� �� ��������� �� ��� ���� return;
+
         if (oldSlot.isEmpty)
             return;
         GetComponent<RectTransform>().position += new Vector3(eventData.delta.x, eventData.delta.y);
@@ -36,46 +31,50 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             InventoryManager.Hide();
             ItemDetails.ActivateWith(oldSlot.item);
         }
-        //������ �������� ����������
-        GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0.75f);
-        // ������ ��� ����� ������� ������ �� ������������ ��� ��������
-        GetComponentInChildren<Image>().raycastTarget = false;
-        // ������ ��� DraggableObject �������� InventoryPanel ����� DraggableObject ��� ��� ������� ������� ���������
-        transform.SetParent(transform.parent.parent);
+        else
+        {
+            image.color = new Color(1, 1, 1, 0.75f);
+
+            image.raycastTarget = false;
+
+            transform.SetParent(transform.parent.parent);
+        }    
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         if (oldSlot.isEmpty)
             return;
-        // ������ �������� ����� �� ����������
+
         GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1f);
-        // � ����� ����� ����� ����� �� ������
+
         GetComponentInChildren<Image>().raycastTarget = true;
 
-        //��������� DraggableObject ������� � ���� ������ ����
+
         transform.SetParent(oldSlot.transform);
         transform.position = oldSlot.transform.position;
-        //���� ����� �������� ��� �������� �� ����� UIPanel, ��...
+
         if (eventData.pointerCurrentRaycast.gameObject.name == "UIPanel")
         {
-            // ������ �������� �� ��������� - ������� ������ ������ ����� ����������
+
             GameObject itemObject = Instantiate(oldSlot.item.itemPrefab, player.position + Vector3.up + player.forward, Quaternion.identity);
-            // ������������� ���������� �������� ����� ����� ���� � �����
-            itemObject.GetComponent<Item>().amount = oldSlot.amount;
-            // ������� �������� InventorySlot
+
+            var item = itemObject.GetComponent<Item>();
+            item.amount = oldSlot.amount;
+            item.item = oldSlot.item;
+
             NullifySlotData();
         }
         else if (eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>() != null)
         {
-            //���������� ������ �� ������ ����� � ������
+
             ExchangeSlotData(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>());
         }
 
     }
     void NullifySlotData()
     {
-        // ������� �������� InventorySlot
+
         oldSlot.item = null;
         oldSlot.amount = 0;
         oldSlot.isEmpty = true;
@@ -85,14 +84,14 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     void ExchangeSlotData(InventorySlot newSlot)
     {
-        // �������� ������ ������ newSlot � ��������� ����������
+
         ItemScriptableObject item = newSlot.item;
         int amount = newSlot.amount;
         bool isEmpty = newSlot.isEmpty;
         GameObject iconGO = newSlot.iconGO;
         TMP_Text itemAmountText = newSlot.itemAmountText;
 
-        // �������� �������� newSlot �� �������� oldSlot
+
         newSlot.item = oldSlot.item;
         newSlot.amount = oldSlot.amount;
         if (oldSlot.isEmpty == false)
@@ -109,7 +108,7 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         newSlot.isEmpty = oldSlot.isEmpty;
 
-        // �������� �������� oldSlot �� �������� newSlot ����������� � ����������
+
         oldSlot.item = item;
         oldSlot.amount = amount;
         if (isEmpty == false)
