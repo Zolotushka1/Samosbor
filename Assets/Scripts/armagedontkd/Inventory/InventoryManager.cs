@@ -6,24 +6,26 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    private static InventoryManager _staticInstance;
+    public static void Hide() { _staticInstance.gameObject.SetActive(false); }
+    public static void Show() { _staticInstance.gameObject.SetActive(true); }
+    private void Awake()
+    {
+        _staticInstance = this;
+
+    }
+
     public GameObject UIPanel;
     //private GameObject player;
     public Transform inventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
-    public bool isOpened;
-    private Camera mainCamera;
     public float reachDistance = 3f;
     private Player_MouseMove mouseMove;
     [SerializeField] private GameObject[] DestroyOnOpen;
 
-    private void Awake()
-    {
-        UIPanel.SetActive(true);
-    }
-
     void Start()
     {
-        mainCamera = Camera.main;
+        mouseMove = FindObjectOfType<Player_MouseMove>();
         for(int i = 0; i < inventoryPanel.childCount; i++)
         {
             if(inventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null)
@@ -31,17 +33,14 @@ public class InventoryManager : MonoBehaviour
                 slots.Add(inventoryPanel.GetChild(i).GetComponent<InventorySlot>());
             }
         }
-        UIPanel.SetActive(false);
     }
 
     void Update()
     {
-        GameObject player = GameObject.Find("Player 1");
-        mouseMove = player.GetComponent<Player_MouseMove>();
+        
         if(Input.GetKeyDown(KeyCode.I))
         {
-            isOpened= !isOpened;
-            if(isOpened)            
+            if(!UIPanel.activeSelf)            
             {
                 UIPanel.SetActive(true);
                 mouseMove.enabled = false;
@@ -64,17 +63,20 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        if(UIPanel.activeSelf)
+        {
+            return;
+        }
         
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(ray, out hit, reachDistance))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit, reachDistance))
             {
             
-                if (hit.collider.gameObject.GetComponent<Item>() != null)
+                if (hit.collider.TryGetComponent<Item>(out var item))
                 {
-                    AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
+                    AddItem(item.item, item.amount);
                     Destroy(hit.collider.gameObject);
                 }
             }
@@ -86,6 +88,7 @@ public class InventoryManager : MonoBehaviour
         {
             if(slot.item == _item)
             {
+                
                 if(slot.amount + _amount <= _item.maximumAmount)
                 {
                     slot.amount += _amount;
