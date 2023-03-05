@@ -2826,7 +2826,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1168527460}
   - component: {fileID: 1168527459}
-  - component: {fileID: 1168527458}
   - component: {fileID: 1168527461}
   m_Layer: 0
   m_Name: SaveLoadManager
@@ -2835,18 +2834,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1168527458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168527457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4212ad118f4fd6409ebfd05e8e7429f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1168527459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,9 +2846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f160affce8954514fb85b451c11954a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _indicators: {fileID: 0}
-  player_Move: {fileID: 0}
-  _inventoryManager: {fileID: 0}
 --- !u!4 &1168527460
 Transform:
   m_ObjectHideFlags: 0

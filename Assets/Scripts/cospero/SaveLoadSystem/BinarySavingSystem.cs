@@ -11,6 +11,7 @@ public static class BinarySavingSystem // static - нам нужна всего 
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.b";
+        Debug.Log(path);
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(indicators,player,inventoryManager);

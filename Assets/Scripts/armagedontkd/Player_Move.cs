@@ -147,4 +147,13 @@ public class Player_Move : MonoBehaviour
         textStamina.text = staminaSlider.value.ToString();
         staminaSlider.value = staminaValue;
     }
+
+    public void Teleport(Vector3 position)
+    {
+        
+        player.enabled =false;
+        transform.position=position;
+        Debug.Log("position");
+        player.enabled =true;
+    }
 }

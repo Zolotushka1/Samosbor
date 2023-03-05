@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class PlayerDataSaveLoad : MonoBehaviour
 {
-    [SerializeField] private Stats _indicators;
-    [SerializeField] private Player_Move player_Move;
-    [SerializeField] private InventoryManager _inventoryManager;
     
 
     public void SavePlayer()
-    {
+    {   
+        var  _indicators=FindObjectOfType<Stats>();
+        var  player_Move=FindObjectOfType<Player_Move>();
+        var   _inventoryManager=FindObjectOfType<InventoryManager>();
         BinarySavingSystem.SavePlayer(_indicators,player_Move, _inventoryManager);
     }
 
     public void LoadPlayer()
     {
         PlayerData data = BinarySavingSystem.LoadPlayer();
+        print(data);
 
-        _indicators.Health = data.health;
+        var player_Move=FindObjectOfType<Player_Move>();
+        Debug.Log(player_Move.name);
+
+        player_Move.Teleport(new Vector3(
+            data.position[0], data.position[1], data.position[2]));
+
+        var _indicators=FindObjectOfType<Stats>();
+        _indicators.Health=data.health;
+
+        //_indicators.Health = data.health;
         /* _indicators.waterAmount = data.water;
         _indicators.foodAmount = data.food; */
         
-       /*  player_Move.transform.position =
-            new Vector3(data.position[0], data.position[1], data.position[2]); */
+       
         
-        /* for (int i = 0; i < _inventoryManager.slots.Count; i++)
+        /* var _inventoryManager=FindObjectOfType<InventoryManager>();
+
+        for (int i = 0; i < _inventoryManager.slots.Count; i++)
         {
             if (data.itemNames[i] != null)
             {
