@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/master/Samosbor.unity
     guid: b948a4e8400adb941bbd864056d6c43b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/armagedontkd/SampleScene.unity
     guid: 7df10e34c7138bf46bc79cb484fac86f
   m_configObjects: {}

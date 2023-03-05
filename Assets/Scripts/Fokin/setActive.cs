@@ -10,11 +10,9 @@ public class setActive : MonoBehaviour
     void OnTriggerEnter(Collider Player)
 
     {
-        if (obj == false)
         {
             obj.SetActive(true);
             Destroy(gameObject);
         }
-
     }
 }
