@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 272545ccbd522e348aa854ec9f23ab60, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: fe65d586d87f98c44a4869c84d4ce77b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -10707,6 +10707,8 @@ MonoBehaviour:
   maxValueStamina: 100
   staminaReturn: 6
   staminaSpent: 1
+  audio: {fileID: 0}
+  impact: {fileID: 0}
   smoothSpeed: 3
   AllStaminaSpentResently: 0
   speed_Move: 3
