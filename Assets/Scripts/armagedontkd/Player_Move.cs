@@ -31,7 +31,7 @@ public class Player_Move : MonoBehaviour
     float z_Move;
     float speed_Run2;
     float staminaReturn2;
-    CharacterController player;
+    public CharacterController player;
     Vector3 move_Direction;
 
     
@@ -150,5 +150,14 @@ public class Player_Move : MonoBehaviour
         if (maxValueStamina <= 100) maxValueStamina = 0f;
         textStamina.text = staminaSlider.value.ToString();
         staminaSlider.value = staminaValue;
+    }
+
+    public void Teleport(Vector3 position)
+    {
+        
+        player.enabled =false;
+        transform.position=position;
+        Debug.Log("position");
+        player.enabled =true;
     }
 }

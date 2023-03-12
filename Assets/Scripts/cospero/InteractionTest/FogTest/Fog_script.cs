@@ -14,7 +14,7 @@ public class Fog_script : MonoBehaviour
         if (other.tag == "Player")
         {
             GameObject enteredObject = other.gameObject;
-            player.GetComponent<stats>().GetDamage(0.3f);
+            player.GetComponent<Stats>().GetDamage(0.3f);
             UnityEngine.Debug.Log(enteredObject.name);
         }
     }

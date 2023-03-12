@@ -6,26 +6,24 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    private static InventoryManager _staticInstance;
-    public static void Hide() { _staticInstance.gameObject.SetActive(false); }
-    public static void Show() { _staticInstance.gameObject.SetActive(true); }
-    private void Awake()
-    {
-        _staticInstance = this;
-
-    }
-
     public GameObject UIPanel;
     //private GameObject player;
     public Transform inventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
+    public bool isOpened;
+    private Camera mainCamera;
     public float reachDistance = 3f;
     private Player_MouseMove mouseMove;
     [SerializeField] private GameObject[] DestroyOnOpen;
 
+    private void Awake()
+    {
+        UIPanel.SetActive(true);
+    }
+
     void Start()
     {
-        mouseMove = FindObjectOfType<Player_MouseMove>();
+        mainCamera = Camera.main;
         for(int i = 0; i < inventoryPanel.childCount; i++)
         {
             if(inventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null)
@@ -33,14 +31,17 @@ public class InventoryManager : MonoBehaviour
                 slots.Add(inventoryPanel.GetChild(i).GetComponent<InventorySlot>());
             }
         }
+        UIPanel.SetActive(false);
     }
 
     void Update()
     {
-        
+        GameObject player = GameObject.Find("Player");
+        mouseMove = player.GetComponent<Player_MouseMove>();
         if(Input.GetKeyDown(KeyCode.I))
         {
-            if(!UIPanel.activeSelf)            
+            isOpened= !isOpened;
+            if(isOpened)            
             {
                 UIPanel.SetActive(true);
                 mouseMove.enabled = false;
@@ -63,32 +64,67 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        if(UIPanel.activeSelf)
-        {
-            return;
-        }
-        
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hit, reachDistance))
+            if (Physics.Raycast(ray, out hit, reachDistance))
             {
             
-                if (hit.collider.TryGetComponent<Item>(out var item))
+                if (hit.collider.gameObject.GetComponent<Item>() != null)
                 {
-                    AddItem(item.item, item.amount);
+                    AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
                     Destroy(hit.collider.gameObject);
                 }
             }
         }
     }
+
+    public void RemoveItemFromSlot(int slotId)
+    {
+        InventorySlot slot=slots[slotId];
+
+        slot.item=null;
+        slot.isEmpty=true;
+        slot.amount=0;
+        slot.iconGO.GetComponent<Image>().color=new Color(r:1,g:1,b:1,a:0);
+        slot.iconGO.GetComponent<Image>().sprite=null;
+        slot.itemAmountText.text="";
+    }
+    public void AddItemToSlot(ItemScriptableObject _item, int _amount, int slodId)
+    {
+        InventorySlot slot=slots[slodId];
+        slot.item=_item;
+        slot.isEmpty=false;
+        slot.SetIcon(_item.icon);
+        if (_amount<=_item.maximumAmount)
+        {
+            slot.amount=_amount;
+            if (slot.item.maximumAmount !=1)
+            {
+                slot.itemAmountText.text=slot.amount.ToString();
+            }
+        }
+
+        else
+        {
+            slot.amount=_item.maximumAmount;
+            _amount-=_item.maximumAmount;
+            if(slot.item.maximumAmount !=1)
+            {
+                slot.itemAmountText.text=slot.amount.ToString();
+            }
+        }
+    }
+
     private void AddItem(ItemScriptableObject _item, int _amount)
     {
         foreach(InventorySlot slot in slots)
         {
             if(slot.item == _item)
             {
-                
                 if(slot.amount + _amount <= _item.maximumAmount)
                 {
                     slot.amount += _amount;
