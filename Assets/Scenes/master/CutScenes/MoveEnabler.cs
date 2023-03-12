@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MoveDisable : MonoBehaviour
+public class MoveEnabler : MonoBehaviour
 {
     private CharacterController characterControl;
     public bool enableController;
@@ -18,7 +17,6 @@ public class MoveDisable : MonoBehaviour
         basedCamera = GameObject.Find("Player_Camera");
         cursorFind = GameObject.Find("Cursor");
     }
-
 
     void Update()
     {
@@ -45,4 +43,5 @@ public class MoveDisable : MonoBehaviour
             playerMove.enabled = false;
         }
     }
+
 }
