@@ -3165,8 +3165,10 @@ GameObject:
   - component: {fileID: 369057962}
   - component: {fileID: 369057961}
   - component: {fileID: 369057965}
+  - component: {fileID: 369057967}
+  - component: {fileID: 369057966}
   m_Layer: 0
-  m_Name: Third mission trigger
+  m_Name: Third mission trigger + cutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3245,6 +3247,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1415373882}
   obj: {fileID: 423681003}
+--- !u!114 &369057966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369057960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa5e7dbd08944640ba8da4539499a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1415373876}
+--- !u!114 &369057967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369057960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e771afb39fc31c841a19d8162e3735bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1415373882}
+  obj: {fileID: 1928637531}
 --- !u!65 &372341948
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7691,80 +7720,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00045706073, y: 0.00013875018, z: 0.015825905}
   m_Center: {x: -0.000000059604645, y: 0.000000022351742, z: -0.0000000037252903}
---- !u!1 &891182302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 891182305}
-  - component: {fileID: 891182304}
-  - component: {fileID: 891182303}
-  - component: {fileID: 891182306}
-  m_Layer: 0
-  m_Name: Second cutscene trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &891182303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891182302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e771afb39fc31c841a19d8162e3735bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1415373882}
-  obj: {fileID: 1928637531}
---- !u!65 &891182304
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891182302}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.6434994, y: 6.0285625, z: 1}
-  m_Center: {x: -0.9002428, y: 0.30912876, z: 0}
---- !u!4 &891182305
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891182302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.991848, y: -17.531012, z: -98.57904}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &891182306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891182302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa5e7dbd08944640ba8da4539499a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1415373876}
 --- !u!1001 &901707533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11522,6 +11477,7 @@ MonoBehaviour:
   DestroyOnDeath:
   - {fileID: 7787062460366107257}
   maxHealth: 100
+  Health: 0
   sceneL: 0
   Player: {fileID: 1415373864}
   Ragdoll: {fileID: 7915563823266015196, guid: 6e4b79f750a30f446a6169b1acd032f6, type: 3}
@@ -11634,6 +11590,7 @@ MonoBehaviour:
   MinStaminaForRun: 20
   jump: 1
   gravity: 0.03
+  player: {fileID: 0}
 --- !u!143 &1415373882 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 1725874842004139163, guid: add050b06fcc5d148800134a24b26b7d, type: 3}
