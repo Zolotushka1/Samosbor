@@ -13,9 +13,16 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(1); //От Жени: поменял сцену 0 на сцену 1 для билда проекта
+        SceneManager.LoadScene(1); //пїЅпїЅ пїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 0 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
+    public void Load()
+    {
+        var loadObject=new GameObject();
+        var promise=loadObject.AddComponent<LoadPromise>();
+        promise.saveName="new_save";
+        SceneManager.LoadScene(2);
+    }
     public void Quit()
     {
         Application.Quit();

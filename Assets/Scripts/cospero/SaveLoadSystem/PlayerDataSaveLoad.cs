@@ -26,7 +26,7 @@ public class PlayerDataSaveLoad : MonoBehaviour
             data.position[0], data.position[1], data.position[2]));
 
         var _indicators=FindObjectOfType<Stats>();
-        _indicators.Health=data.health;
+        _indicators.SetHpOnLoad(data.health);
 
         //_indicators.Health = data.health;
         /* _indicators.waterAmount = data.water;

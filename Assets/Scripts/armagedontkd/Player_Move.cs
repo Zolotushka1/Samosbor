@@ -150,10 +150,10 @@ public class Player_Move : MonoBehaviour
 
     public void Teleport(Vector3 position)
     {
-        
+        if (!player) player=GetComponent<CharacterController>();
         player.enabled =false;
         transform.position=position;
-        Debug.Log("position");
+        
         player.enabled =true;
     }
 }

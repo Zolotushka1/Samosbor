@@ -669,7 +669,7 @@ MonoBehaviour:
   DestroyOnDeath:
   - {fileID: 495317367}
   maxHealth: 100
-  Health: 0
+  Health: 100
   sceneL: 0
   Player: {fileID: 462381579}
   Ragdoll: {fileID: 7915563823266015196, guid: 6e4b79f750a30f446a6169b1acd032f6, type: 3}

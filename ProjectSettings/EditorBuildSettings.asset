@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/armagedontkd/SampleScene.unity
     guid: 7df10e34c7138bf46bc79cb484fac86f
+  - enabled: 1
+    path: Assets/Scenes/Cospro/SampleScene.unity
+    guid: e06efb35a2d2f4e4ca47e2c4918f1548
   m_configObjects: {}

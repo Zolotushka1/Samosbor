@@ -29,7 +29,7 @@ public class Stats : MonoBehaviour
     void Start()
     {
         textHp = HpSlider.transform.GetChild(3).GetComponent<TMP_Text>();
-        Health = maxHealth;
+        /* Health = maxHealth; */
         
     }
 
@@ -65,6 +65,13 @@ public class Stats : MonoBehaviour
         }
         
     }
+
+    
+    public void SetHpOnLoad(float HpOnLoad)
+    {
+        Health=HpOnLoad;
+    }
+
     void die()
     {
         if (Health < 1)
