@@ -12,10 +12,9 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float maxValueStamina;
     [SerializeField] float staminaReturn;
     [SerializeField] float staminaSpent;
-    [SerializeField] private new AudioSource audio;
-    [SerializeField] private AudioClip impact;
+
     //[SerializeField] float staminaReturn2;
-    [Range (0,10)] [SerializeField] private float smoothSpeed;
+    [Range(0, 10)][SerializeField] private float smoothSpeed;
     private TMP_Text textStamina;
 
     private bool isSquat;
@@ -31,10 +30,12 @@ public class Player_Move : MonoBehaviour
     float z_Move;
     float speed_Run2;
     float staminaReturn2;
-    public CharacterController player;
+    CharacterController player;
     Vector3 move_Direction;
 
-    
+    public SoundsManager sounds;
+    private bool in_air = false;
+
     void Start()
     {
         
@@ -44,7 +45,7 @@ public class Player_Move : MonoBehaviour
         isSquat = false;
         speed_Run2 = speed_Run;
         staminaReturn2 = staminaReturn;
-        audio = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -61,12 +62,26 @@ public class Player_Move : MonoBehaviour
         z_Move = Input.GetAxis("Vertical");
         if (player.isGrounded)
         {
+            
+            if (in_air)
+            {
+                sounds.Fall();
+                in_air = false;
+            }
             move_Direction = new Vector3(x_Move, 0f, z_Move);
+            if(move_Direction.magnitude > 0.8f) 
+            {
+                sounds.StepsActive();
+            }
+            else
+            {
+                sounds.StepsDeactive();
+            }    
             move_Direction = transform.TransformDirection(move_Direction);
             if (Input.GetKey(KeyCode.Space))
             {
                 move_Direction.y += jump;
-                audio.PlayOneShot(impact, 0.7F);
+                sounds.Jump();
             }
             else if (Input.GetKey(KeyCode.LeftControl) && (isSquat == false) && (player.height > 1.4F))
             {
@@ -108,7 +123,13 @@ public class Player_Move : MonoBehaviour
             }
 
         }
-        move_Direction.y -= gravity;
+        else
+        {
+            
+            sounds.StepsDeactive();
+            in_air = true;
+        }
+        move_Direction.y -= gravity * Time.deltaTime;
         
         if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> staminaReturn) && (AllStaminaSpentResently==false))
         {
@@ -143,6 +164,7 @@ public class Player_Move : MonoBehaviour
             }
         }
         player.Move(move_Direction * speed_Current * Time.deltaTime);
+        
     }   
     private void Stamina()
     {
@@ -151,13 +173,5 @@ public class Player_Move : MonoBehaviour
         textStamina.text = staminaSlider.value.ToString();
         staminaSlider.value = staminaValue;
     }
+}       
 
-    public void Teleport(Vector3 position)
-    {
-        
-        player.enabled =false;
-        transform.position=position;
-        Debug.Log("position");
-        player.enabled =true;
-    }
-}
