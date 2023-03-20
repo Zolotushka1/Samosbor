@@ -6,6 +6,7 @@ TagManager:
   tags:
   - dialoguePanel
   - Ground
+  - WayPoints
   layers:
   - Default
   - TransparentFX
