@@ -11477,7 +11477,7 @@ MonoBehaviour:
   DestroyOnDeath:
   - {fileID: 7787062460366107257}
   maxHealth: 100
-  Health: 0
+  Health: 100
   sceneL: 0
   Player: {fileID: 1415373864}
   Ragdoll: {fileID: 7915563823266015196, guid: 6e4b79f750a30f446a6169b1acd032f6, type: 3}
@@ -11493,7 +11493,7 @@ Animator:
   m_GameObject: {fileID: 1415373864}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e22cfb9e823b054eb912facab258cca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11580,8 +11580,6 @@ MonoBehaviour:
   maxValueStamina: 100
   staminaReturn: 6
   staminaSpent: 1
-  audio: {fileID: 0}
-  impact: {fileID: 0}
   smoothSpeed: 3
   AllStaminaSpentResently: 0
   speed_Move: 3
@@ -11590,7 +11588,7 @@ MonoBehaviour:
   MinStaminaForRun: 20
   jump: 1
   gravity: 0.03
-  player: {fileID: 0}
+  sounds: {fileID: 0}
 --- !u!143 &1415373882 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 1725874842004139163, guid: add050b06fcc5d148800134a24b26b7d, type: 3}
