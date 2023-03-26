@@ -43,6 +43,10 @@ public class waa : MonoBehaviour
             componentToDisable.enabled = false;
             rb.useGravity = false;
             displayText.enabled = false;
+            if (Input.GetKeyDown(KeyCode.E))  
+            {
+                isClimbing = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
