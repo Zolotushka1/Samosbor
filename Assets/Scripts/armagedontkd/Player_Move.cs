@@ -36,6 +36,15 @@ public class Player_Move : MonoBehaviour
     public SoundsManager sounds;
     private bool in_air = false;
 
+    public void Teleport(Vector3 position)
+    {
+        if (!player) player = GetComponent<CharacterController>();
+        player.enabled = false;
+        transform.position = position;
+
+        player.enabled = true;
+    }
+
     void Start()
     {
         
