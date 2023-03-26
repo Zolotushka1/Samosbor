@@ -2128,6 +2128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: inventoryCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5604529828968644084, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: b273995b64a2b354190786c17ab3f83d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4c060054b2907441a09af4bc15ca656, type: 3}
 --- !u!1 &625970409
@@ -2583,6 +2587,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1168527462}
+        m_TargetAssemblyTypeName: SceneDataSaveLoad, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &804049493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,6 +2843,7 @@ GameObject:
   - component: {fileID: 1168527460}
   - component: {fileID: 1168527459}
   - component: {fileID: 1168527461}
+  - component: {fileID: 1168527462}
   m_Layer: 0
   m_Name: SaveLoadManager
   m_TagString: Untagged
@@ -2874,6 +2891,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasObj: {fileID: 1557821391}
+--- !u!114 &1168527462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168527457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4212ad118f4fd6409ebfd05e8e7429f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savingEnvironment: {fileID: 1070895009}
 --- !u!1 &1206553201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1423623070090920479, guid: 084a12be79878b642a3d62c98339ba36, type: 3}
@@ -3703,6 +3733,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3028737614310892390, guid: e39d33811e5ddad46935be10230cd96f, type: 3}
   m_PrefabInstance: {fileID: 3028737614906415800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708156360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 502189742623498421, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+  m_PrefabInstance: {fileID: 1911309921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815637267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4124984682632883641, guid: 18baa3c46e957ca4fb9461c61ad4e84f, type: 3}
@@ -3898,11 +3933,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
       propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+      propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1708156360}
     - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
       propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+      propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+      propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+      propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 502189742623498423, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}
+      propertyPath: OnActivatedButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 557d51cd8bd195644bd7ad0285bec433, type: 3}

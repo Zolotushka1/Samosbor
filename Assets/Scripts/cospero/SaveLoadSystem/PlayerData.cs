@@ -13,7 +13,7 @@ public class PlayerData
   public string[] itemNames;
   public int[] itemAmounts;
 
-  /* public override string ToString()
+  public override string ToString()
   {
     
     var inventoryText="";
@@ -22,7 +22,7 @@ public class PlayerData
       inventoryText += $"&& {itemNames[i]}: {itemAmounts[i]}";
     }
     return $"{health} {position[0]} {position[1]} {position[2]} {inventoryText}";
-  } */
+  }
 
   public PlayerData (Stats indicators, Player_Move player, InventoryManager inventoryManager)
   {
@@ -35,7 +35,7 @@ public class PlayerData
     position[1] = playerPosition.y;
     position[2] = playerPosition.z; 
     
-    Debug.Log($"{playerPosition} {position[0]} {position[1]} { position[2]}");
+    /* Debug.Log($"{playerPosition} {position[0]} {position[1]} { position[2]} "); */
 
     itemNames = new string[inventoryManager.slots.Count];
     itemAmounts = new int[inventoryManager.slots.Count];
@@ -44,13 +44,14 @@ public class PlayerData
     for (int i = 0; i < inventoryManager.slots.Count; i++)
     {
       if(inventoryManager.slots[i].item != null)
-        itemNames[i] = inventoryManager.slots[i].item.name;
+      {
+          itemNames[i] = inventoryManager.slots[i].item.name;
+          itemAmounts[i] = inventoryManager.slots[i].amount;
+          
+      }
+        
     }
     
-    for (int i = 0; i < inventoryManager.slots.Count; i++)
-    {
-      if(inventoryManager.slots[i].item != null)
-        itemAmounts[i] = inventoryManager.slots[i].amount;
-    }
+    
   }
 }

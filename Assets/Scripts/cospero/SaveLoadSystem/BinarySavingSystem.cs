@@ -31,6 +31,7 @@ public static class BinarySavingSystem // static - нам нужна всего 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
             
+            
             return data;
         }
         else

@@ -1,6 +1,6 @@
-﻿/* using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using SETUtil.Extend;
+/* using SETUtil.Extend; */
 using UnityEngine;
 
 public class SceneDataSaveLoad : MonoBehaviour
@@ -50,4 +50,3 @@ public class SceneDataSaveLoad : MonoBehaviour
         return prefabName;
     }
 }
- */

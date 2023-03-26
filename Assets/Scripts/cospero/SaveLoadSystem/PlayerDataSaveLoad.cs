@@ -28,20 +28,19 @@ public class PlayerDataSaveLoad : MonoBehaviour
         var _indicators=FindObjectOfType<Stats>();
         _indicators.SetHpOnLoad(data.health);
 
-        //_indicators.Health = data.health;
-        /* _indicators.waterAmount = data.water;
-        _indicators.foodAmount = data.food; */
         
-       
-        
-        /* var _inventoryManager=FindObjectOfType<InventoryManager>();
+        var _inventoryManager=FindObjectOfType<InventoryManager>();
 
         for (int i = 0; i < _inventoryManager.slots.Count; i++)
         {
             if (data.itemNames[i] != null)
             {
                 _inventoryManager.RemoveItemFromSlot(i);
-                ItemScriptableObject item = Resources.Load<ItemScriptableObject>($"ScriptableObjects/{data.itemNames[i]}");
+                print($"{data.itemNames[i]}");
+                
+                
+                var item = Resources.Load<ItemScriptableObject>($"{data.itemNames[i]}");
+                print($"{item.GetType()}");
                 int itemAmount = data.itemAmounts[i];
                 _inventoryManager.AddItemToSlot(item,itemAmount,i);
             }
@@ -49,7 +48,7 @@ public class PlayerDataSaveLoad : MonoBehaviour
             {
                 _inventoryManager.RemoveItemFromSlot(i);
             }
-        } */
+        } 
         
         
     }
