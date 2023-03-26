@@ -25,13 +25,13 @@ public class waa : MonoBehaviour
 
     void Update()
     {
-        RaycastToScreenCenter();
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
 
         if (!isClimbing)
         {
+            RaycastToScreenCenter();
             componentToDisable.enabled = true;
             rb.useGravity = true;
         }
@@ -42,9 +42,7 @@ public class waa : MonoBehaviour
             transform.position += climbDirection * climbSpeed * Time.deltaTime;
             componentToDisable.enabled = false;
             rb.useGravity = false;
-           
-            
-            
+            displayText.enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
