@@ -16744,9 +16744,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2110525637}
     - target: {fileID: 9146404980851535186, guid: 6d5d782bdf64fd440a171d72aaab9e51, type: 3}
+      propertyPath: jump
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146404980851535186, guid: 6d5d782bdf64fd440a171d72aaab9e51, type: 3}
       propertyPath: sounds
       value: 
       objectReference: {fileID: 1532609072}
+    - target: {fileID: 9146404980851535186, guid: 6d5d782bdf64fd440a171d72aaab9e51, type: 3}
+      propertyPath: gravity
+      value: 0.98
+      objectReference: {fileID: 0}
     - target: {fileID: 9146404980851535186, guid: 6d5d782bdf64fd440a171d72aaab9e51, type: 3}
       propertyPath: staminaSlider
       value: 
