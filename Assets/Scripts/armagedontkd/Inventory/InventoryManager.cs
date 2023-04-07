@@ -16,13 +16,20 @@ public class InventoryManager : MonoBehaviour
     private Player_MouseMove mouseMove;
     [SerializeField] private GameObject[] DestroyOnOpen;
 
-    private void Awake()
-    {
-        UIPanel.SetActive(true);
-    }
+   
 
     void Start()
     {
+       AwakeInventoryOnLoad();
+       
+       
+    }
+
+    public void AwakeInventoryOnLoad()   // вызывается и при обычном старте уровня и при загругке сохранения, создает слоты инвентаря в канвасе
+    {   
+
+        if (mainCamera == null)
+        {
         mainCamera = Camera.main;
         for(int i = 0; i < inventoryPanel.childCount; i++)
         {
@@ -32,6 +39,8 @@ public class InventoryManager : MonoBehaviour
             }
         }
         UIPanel.SetActive(false);
+        }
+         
     }
 
     void Update()
@@ -44,7 +53,7 @@ public class InventoryManager : MonoBehaviour
             if(isOpened)            
             {
                 UIPanel.SetActive(true);
-                mouseMove.enabled = false;
+                mouseMove.enabled = false;  
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 foreach (GameObject ob in DestroyOnOpen)
@@ -64,12 +73,13 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        
         RaycastHit hit;
 
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, reachDistance))
             {
             
@@ -81,6 +91,8 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    
 
     public void RemoveItemFromSlot(int slotId)
     {

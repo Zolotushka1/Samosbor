@@ -29,8 +29,10 @@ public class PlayerDataSaveLoad : MonoBehaviour
         _indicators.SetHpOnLoad(data.health);
 
         
+
         var _inventoryManager=FindObjectOfType<InventoryManager>();
 
+        _inventoryManager.AwakeInventoryOnLoad();
         for (int i = 0; i < _inventoryManager.slots.Count; i++)
         {
             if (data.itemNames[i] != null)
