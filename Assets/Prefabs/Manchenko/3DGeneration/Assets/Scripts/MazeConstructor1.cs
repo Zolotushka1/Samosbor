@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MazeConstructor : MonoBehaviour
 {
+    private MazeDataGenerator dataGenerator;
+
     public bool showDebug;
 
     [SerializeField] private Material mazeMat1;
@@ -16,7 +18,7 @@ public class MazeConstructor : MonoBehaviour
 
     void Awake()
     {
-        // default to walls surrounding a single empty cell
+        dataGenerator = new MazeDataGenerator();
         data = new int[,]
         {
             {1, 1, 1},
@@ -27,7 +29,12 @@ public class MazeConstructor : MonoBehaviour
 
     public void GenerateNewMaze(int sizeRows, int sizeCols)
     {
-        // stub to fill in
+        if (sizeRows % 2 == 0 && sizeCols % 2 == 0)
+        {
+            Debug.LogError("Odd numbers work better for dungeon size.");
+        }
+
+        data = dataGenerator.FromDimensions(sizeRows, sizeCols);
     }
 
     void OnGUI()
