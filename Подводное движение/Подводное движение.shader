@@ -36,8 +36,9 @@ Shader "Custom\ПодводноеДвижение"
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                float2 uv : TEXCOORD0;
-                float4 color : COLOR;
+    		float2 uv : 
+    		float4 color : COLOR;
+    		float4 grabPos : TEXCOORD1;
             };
 
             fixed4 _Color;
@@ -49,6 +50,7 @@ Shader "Custom\ПодводноеДвижение"
                 o.uv = v.uv;
                 o.color = v.color;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+		o.grabPos = ComputeGrabScreenPos (o.vertex);
                 return o;
             }
             
