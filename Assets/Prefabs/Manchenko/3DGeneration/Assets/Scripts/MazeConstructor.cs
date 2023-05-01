@@ -4,12 +4,12 @@ public class MazeConstructor : MonoBehaviour
 {
     private MazeDataGenerator dataGenerator;
 
+    private MazeMeshGenerator meshGenerator;
+
     public bool showDebug;
 
     [SerializeField] private Material mazeMat1;
     [SerializeField] private Material mazeMat2;
-    [SerializeField] private Material startMat;
-    [SerializeField] private Material treasureMat;
 
     public int[,] data
     {
@@ -18,7 +18,10 @@ public class MazeConstructor : MonoBehaviour
 
     void Awake()
     {
+        meshGenerator = new MazeMeshGenerator();
+
         dataGenerator = new MazeDataGenerator();
+
         data = new int[,]
         {
             {1, 1, 1},
@@ -35,6 +38,25 @@ public class MazeConstructor : MonoBehaviour
         }
 
         data = dataGenerator.FromDimensions(sizeRows, sizeCols);
+
+        DisplayMaze();
+    }
+
+    private void DisplayMaze()
+    {
+        GameObject go = new GameObject();
+        go.transform.position = Vector3.zero;
+        go.name = "Procedural Maze";
+        go.tag = "Generated";
+
+        MeshFilter mf = go.AddComponent<MeshFilter>();
+        mf.mesh = meshGenerator.FromData(data);
+
+        MeshCollider mc = go.AddComponent<MeshCollider>();
+        mc.sharedMesh = mf.mesh;
+
+        MeshRenderer mr = go.AddComponent<MeshRenderer>();
+        mr.materials = new Material[2] { mazeMat1, mazeMat2 };
     }
 
     void OnGUI()
