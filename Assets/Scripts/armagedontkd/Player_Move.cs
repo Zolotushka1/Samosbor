@@ -74,7 +74,7 @@ public class Player_Move : MonoBehaviour
             
             if (in_air)
             {
-                sounds.Fall();
+                //sounds.Fall(); Комментарий от Жени: закомментил ввиду отключения звука падения в скрипте SoundsManager
                 in_air = false;
             }
             move_Direction = new Vector3(x_Move, 0f, z_Move);

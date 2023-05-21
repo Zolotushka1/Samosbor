@@ -24,27 +24,23 @@ public class Stats : MonoBehaviour
 
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         textHp = HpSlider.transform.GetChild(3).GetComponent<TMP_Text>();
         Health = maxHealth;
         
     }
-
-    // Update is called once per frame
     
     void Update()
 
     {
-        if (Input.GetKey(KeyCode.F))
+        /*if (Input.GetKey(KeyCode.F))
         {
             GetDamage(2f);
-        }
+        }*/
         HpShow();
     }
-    public  void GetDamage(float DAMAge)
+    public void GetDamage(float DAMAge)
     {
         Health -= DAMAge;
         if (Health < 0)
@@ -67,7 +63,7 @@ public class Stats : MonoBehaviour
     }
     void die()
     {
-        if (Health < 1)
+        if (Health <= 0)
         {
 
             var rot = Quaternion.Euler(0, 0, 10);
@@ -81,12 +77,11 @@ public class Stats : MonoBehaviour
 
             DeathMenu.SetActive(true);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             foreach (GameObject ob in DestroyOnDeath)
             {
                 ob.SetActive(false);
             }
-            Cursor.lockState = CursorLockMode.None;
-            //SceneManager.LoadScene(sceneL);
         }
     }
 

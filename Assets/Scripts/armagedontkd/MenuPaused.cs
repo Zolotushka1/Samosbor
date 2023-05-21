@@ -18,7 +18,7 @@ public class MenuPaused : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             ActiveMenu();
         }
@@ -55,7 +55,8 @@ public class MenuPaused : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
 
     }
     public void EnterSettings()
