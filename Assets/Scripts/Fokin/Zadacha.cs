@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -15,6 +13,6 @@ public class Zadacha : MonoBehaviour
     {
         Missiontmp.text = MissionText;
         NameMissiontmp.text = NameMissionText;
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

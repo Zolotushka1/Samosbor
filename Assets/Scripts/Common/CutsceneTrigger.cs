@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CutsceneTrigger : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject cutsceneCam;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject cutsceneCam;
+    [SerializeField] private float lenghtOfCutscene;
+    [SerializeField] private PlayableDirector director;
 
     private void OnTriggerEnter(Collider other)
     {
+        director.GetComponent<PlayableDirector>().Play();
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         cutsceneCam.SetActive(true);
         player.SetActive(false);
@@ -17,7 +21,7 @@ public class CutsceneTrigger : MonoBehaviour
 
     IEnumerator FinishCut()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(lenghtOfCutscene);
         player.SetActive(true);
         cutsceneCam.SetActive(false);
     }
