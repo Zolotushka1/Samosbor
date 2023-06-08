@@ -9565,7 +9565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6767f23b3eb9c45b5a83574916b4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 33920593}
   playerGameObject: {fileID: 1415373864}
   sensitivity: 5
   SmoothTime: 0.1
