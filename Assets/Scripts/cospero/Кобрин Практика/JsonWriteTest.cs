@@ -17,6 +17,7 @@ public class JsonWriteTest : MonoBehaviour
     void Start()
     {
         LoadJson();
+        SaveJson();
         JsonsetTime();
     }
 
