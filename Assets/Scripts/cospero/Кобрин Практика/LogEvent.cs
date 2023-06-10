@@ -18,7 +18,7 @@ public class LogEvent : MonoBehaviour
      private  void OnTriggerEnter(Collider other) 
      {
         
-        if (other.tag == "Player")
+        if ((other.tag == "Player") ^ (other.tag == "LogBot"))
         {
             actualTime=System.DateTime.Now.ToString("hh:mm:ss");
             date=System.DateTime.Now.ToString("MM/dd/yyyy");

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - dialoguePanel
   - Ground
+  - LogBot
   layers:
   - Default
   - TransparentFX
