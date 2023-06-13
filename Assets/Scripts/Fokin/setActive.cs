@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class setActive : MonoBehaviour
 {
-    public Collider Player;
-    public GameObject obj;
+    [SerializeField] private Collider Player;
+    [SerializeField] private GameObject obj;
+    [SerializeField] private bool destroyThisObject = false;
 
     void OnTriggerEnter(Collider Player)
 
     {
         {
             obj.SetActive(true);
-            Destroy(gameObject);
+            if (destroyThisObject == true)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

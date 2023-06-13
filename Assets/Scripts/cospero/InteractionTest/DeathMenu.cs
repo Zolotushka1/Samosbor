@@ -11,7 +11,6 @@ public class DeathMenu : MonoBehaviour
     
     public void Death()
     {
-        
         SceneManager.LoadScene(0);
     }
 }
