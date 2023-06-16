@@ -11,13 +11,11 @@ public class NoteManager : MonoBehaviour
     [SerializeField] GameObject NoteObj;
     [SerializeField] private GameObject[] DestroyOnOpen;
     private bool OverlayOn;
-    //public GameObject player;
+    public GameObject player;
     void Start()
     {
         OverlayOn=false;
         NoteObj.SetActive(false);
-        
-        
     }
 
     public void NoteOpen(string NoteTextss)
@@ -52,16 +50,16 @@ public class NoteManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
     
-    private void  Update() 
+    private void Update() 
     {
-        /*if (OverlayOn==false)
+        if (OverlayOn==false)
         {
             player.GetComponent<Player_MouseMove>().enabled=true;
         }
         else 
         {
             player.GetComponent<Player_MouseMove>().enabled=false;
-        }*/
+        }
         if ((Input.GetKeyDown(KeyCode.E))&&(OverlayOn==true))
         {
            NoteClose();

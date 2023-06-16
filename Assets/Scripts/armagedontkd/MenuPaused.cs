@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuPaused : MonoBehaviour
 {
-    
     public GameObject menuPaused;
     public GameObject _settingsPanel;
     bool isMenuPaused = false;
@@ -28,10 +27,9 @@ public class MenuPaused : MonoBehaviour
     {
 
         isMenuPaused = !isMenuPaused;
-        
+
         if (isMenuPaused)
         {
-
             menuPaused.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
@@ -51,7 +49,6 @@ public class MenuPaused : MonoBehaviour
             }
         }
     }
-
 
     public void LoadMenu()
     {

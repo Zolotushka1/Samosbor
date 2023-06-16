@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MousSensitivity : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     private const string PREFS_KEY = "MouseSensitivity";
     public static float GetValue() 
     {
@@ -17,7 +18,9 @@ public class MousSensitivity : MonoBehaviour
 
     public void SetValue(float value)
     {
-        PlayerPrefs.SetFloat(PREFS_KEY, value); 
+        PlayerPrefs.SetFloat(PREFS_KEY, value);
+        var slider = player.GetComponent<Player_MouseMove>();
+        slider.sensitivity = value;
     }
     
     

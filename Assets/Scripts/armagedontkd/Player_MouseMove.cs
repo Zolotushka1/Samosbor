@@ -30,7 +30,7 @@ public class Player_MouseMove: MonoBehaviour
         yRot = yRotCurrent;
     }
 
-    void Update()
+    void LateUpdate()
     {
         xRot += Input.GetAxis("Mouse X") * sensitivity;
         yRot += Input.GetAxis("Mouse Y") * sensitivity;
