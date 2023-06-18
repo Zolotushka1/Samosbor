@@ -41,6 +41,7 @@ public class MenuPaused : MonoBehaviour
         else
         {
             menuPaused.SetActive(false);
+            _settingsPanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             foreach (GameObject ob in DestroyOnOpen)

@@ -16,8 +16,12 @@ public class onColliderEnter : MonoBehaviour
     void OnTriggerEnter(Collider Player)
     {
         {
-            Door.GetComponent<Door>().Interact();
-            ObjecticAudio.GetComponent<AudioSource>().PlayOneShot(Sound);
+            var doorScript = Door.GetComponent<Door>();
+            if (doorScript.isOpen == true)
+            {
+                doorScript.Interact();
+                ObjecticAudio.GetComponent<AudioSource>().PlayOneShot(Sound);
+            }
             Destroy(SamosborStop);
             Destroy(gameObject);
             Destroy(presentDoor.GetComponent<Activator>());

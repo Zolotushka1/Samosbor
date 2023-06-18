@@ -8,7 +8,7 @@ public class Player_MouseMove: MonoBehaviour
     float yRotCurrent;
     public Camera playerCamera;
     public GameObject playerGameObject;
-    public float sensitivity = 5f;
+    public float sensitivity = 3f;
     public float SmoothTime = 0.1f;
     float currentVelosityX;
     float currentVelosityY;
@@ -30,7 +30,7 @@ public class Player_MouseMove: MonoBehaviour
         yRot = yRotCurrent;
     }
 
-    void LateUpdate()
+    void Update()
     {
         xRot += Input.GetAxis("Mouse X") * sensitivity;
         yRot += Input.GetAxis("Mouse Y") * sensitivity;

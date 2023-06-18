@@ -140,7 +140,7 @@ public class Player_Move : MonoBehaviour
         }
         move_Direction.y -= gravity * Time.deltaTime;
         
-        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue> staminaReturn) && (AllStaminaSpentResently==false))
+        if ((Input.GetKey(KeyCode.LeftShift))&&(staminaValue > staminaReturn) && (AllStaminaSpentResently==false))
         {
             speed_Current = Mathf.Lerp(speed_Current, speed_Run, Time.deltaTime *smoothSpeed);
             staminaValue -= staminaSpent * Time.deltaTime * 10;
@@ -149,7 +149,6 @@ public class Player_Move : MonoBehaviour
         else if((Input.GetKey(KeyCode.LeftShift)) && (staminaValue <= staminaReturn)&& (AllStaminaSpentResently==false))
         {
             AllStaminaSpentResently = true;
-            UnityEngine.Debug.Log(AllStaminaSpentResently);
             staminaValue += staminaReturn * Time.deltaTime * 1f;
             speed_Current = Mathf.Lerp(speed_Current, speed_Move, Time.deltaTime * smoothSpeed);
             
