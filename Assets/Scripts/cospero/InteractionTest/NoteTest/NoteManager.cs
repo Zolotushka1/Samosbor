@@ -9,6 +9,7 @@ public class NoteManager : MonoBehaviour
 {
     [SerializeField] TMP_Text NoteText;
     [SerializeField] GameObject NoteObj;
+    [SerializeField] GameObject menuManager;
     [SerializeField] private GameObject[] DestroyOnOpen;
     private bool OverlayOn;
     public GameObject player;
@@ -22,6 +23,7 @@ public class NoteManager : MonoBehaviour
     {
         if (OverlayOn == false)
         {
+            menuManager.SetActive(false);
             var sounds = player.transform.GetChild(1).gameObject;
             sounds.SetActive(false);
             player.GetComponent<MoveEnabler>().enableController = false;
@@ -51,6 +53,7 @@ public class NoteManager : MonoBehaviour
                 ob.SetActive(true);
             }
         Cursor.visible = false;
+        menuManager.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
     }
     

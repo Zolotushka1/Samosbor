@@ -69,4 +69,8 @@ public class MenuPaused : MonoBehaviour
         _settingsPanel.SetActive(true);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

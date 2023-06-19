@@ -10,8 +10,11 @@ public class WriteText : MonoBehaviour
 {
     [SerializeField] private GameObject noteManager;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject menuManager;
+    [SerializeField] private GameObject noteCanvas;
     [SerializeField] private GameObject cutsceneCam;
-    [SerializeField] private GameObject afterSceneCanvas;
+    [SerializeField] private GameObject finalScript;
+    [SerializeField] private GameObject lastSamosbor;
     [SerializeField] private PlayableDirector director;
     [SerializeField] private float lenghtOfCutscene;
     [SerializeField] private GameObject[] DestroyOnOpen;
@@ -50,6 +53,7 @@ public class WriteText : MonoBehaviour
 
     public void OnEnable()
     {
+        menuManager.SetActive(false);
         noteManager.SetActive(true);
         var sounds = player.transform.GetChild(1).gameObject;
         sounds.SetActive(false);
@@ -90,8 +94,12 @@ public class WriteText : MonoBehaviour
     }
     public void OnBtnClick()
     {
-        noteManager.SetActive(false);
-        StartCoroutine(FinishCut());
+        lastSamosbor.SetActive(true);
+        noteCanvas.SetActive(false);
+        director.GetComponent<PlayableDirector>().Play();
+        cutsceneCam.SetActive(true);
+        player.SetActive(false);
+        finalScript.GetComponent<FinalScript>().OnActiv();
     }
 
     IEnumerator TypeWriterTMP()
@@ -117,10 +125,4 @@ public class WriteText : MonoBehaviour
         }
     }
 
-    IEnumerator FinishCut()
-    {
-        yield return new WaitForSeconds(lenghtOfCutscene);
-        afterSceneCanvas.SetActive(true);
-        cutsceneCam.SetActive(false);
-    }
 }

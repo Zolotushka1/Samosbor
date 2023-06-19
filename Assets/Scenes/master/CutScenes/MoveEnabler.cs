@@ -7,7 +7,7 @@ public class MoveEnabler : MonoBehaviour
     public bool enableController;
     private GameObject basedCamera;
     private HeadBob headBob;
-    private Player_MouseMove mouseMouve;
+    private Mouse_Control mouseMouve;
     private Player_Move playerMove;
     private GameObject cursorFind;
     private Canvas cursor;
@@ -21,7 +21,7 @@ public class MoveEnabler : MonoBehaviour
     void Update()
     {
         characterControl = GetComponent<CharacterController>();
-        mouseMouve = GetComponent<Player_MouseMove>();
+        mouseMouve = GetComponent<Mouse_Control>();
         playerMove = GetComponent<Player_Move>();
         headBob = basedCamera.GetComponent<HeadBob>();
         cursor = cursorFind.GetComponent<Canvas>();
