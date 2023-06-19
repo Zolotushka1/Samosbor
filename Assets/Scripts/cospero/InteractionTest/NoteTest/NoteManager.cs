@@ -14,19 +14,21 @@ public class NoteManager : MonoBehaviour
     public GameObject player;
     void Start()
     {
-        OverlayOn=false;
+        OverlayOn = false;
         NoteObj.SetActive(false);
     }
 
     public void NoteOpen(string NoteTextss)
     {
-        if (OverlayOn==false)
+        if (OverlayOn == false)
         {
-            
-            NoteText.text=NoteTextss;
-            OverlayOn=true;
+            var sounds = player.transform.GetChild(1).gameObject;
+            sounds.SetActive(false);
+            player.GetComponent<MoveEnabler>().enableController = false;
+            NoteText.text = NoteTextss;
+            OverlayOn = true;
             NoteObj.SetActive(true);
-            Time.timeScale=0f;
+            Time.timeScale = 0f;
             foreach (GameObject ob in DestroyOnOpen)
                 {
                     ob.SetActive(false);
@@ -38,9 +40,11 @@ public class NoteManager : MonoBehaviour
 
     public void NoteClose()
     {
-        
-        OverlayOn=false;
-        Time.timeScale=1f;
+        var sounds = player.transform.GetChild(1).gameObject;
+        sounds.SetActive(true);
+        player.GetComponent<MoveEnabler>().enableController = true;
+        OverlayOn = false;
+        Time.timeScale = 1f;
         NoteObj.SetActive(false);
          foreach (GameObject ob in DestroyOnOpen)
             {
@@ -52,15 +56,7 @@ public class NoteManager : MonoBehaviour
     
     private void Update() 
     {
-        if (OverlayOn==false)
-        {
-            player.GetComponent<Player_MouseMove>().enabled=true;
-        }
-        else 
-        {
-            player.GetComponent<Player_MouseMove>().enabled=false;
-        }
-        if ((Input.GetKeyDown(KeyCode.E))&&(OverlayOn==true))
+        if ((Input.GetKeyDown(KeyCode.E))&&(OverlayOn == true))
         {
            NoteClose();
         }

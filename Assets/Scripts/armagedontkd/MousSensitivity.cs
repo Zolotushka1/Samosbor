@@ -19,7 +19,7 @@ public class MousSensitivity : MonoBehaviour
     public void SetValue(float value)
     {
         PlayerPrefs.SetFloat(PREFS_KEY, value);
-        var slider = player.GetComponent<Player_MouseMove>();
+        var slider = player.GetComponent<Mouse_Control>();
         slider.sensitivity = value;
     }
     

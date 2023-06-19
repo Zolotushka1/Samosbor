@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuPaused : MonoBehaviour
 {
-    public GameObject menuPaused;
-    public GameObject _settingsPanel;
-    bool isMenuPaused = false;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject menuPaused;
+    [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject[] DestroyOnOpen;
+    bool isMenuPaused = false;
 
     void Start()
     {
@@ -25,11 +26,14 @@ public class MenuPaused : MonoBehaviour
 
     public void ActiveMenu()
     {
-
+        var enabler = player.GetComponent<MoveEnabler>();
+        var sounds = player.transform.GetChild(1).gameObject;
         isMenuPaused = !isMenuPaused;
 
         if (isMenuPaused)
         {
+            sounds.SetActive(false);
+            enabler.enableController = false;
             menuPaused.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
@@ -40,6 +44,8 @@ public class MenuPaused : MonoBehaviour
         }
         else
         {
+            sounds.SetActive(true);
+            enabler.enableController = true;
             menuPaused.SetActive(false);
             _settingsPanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;

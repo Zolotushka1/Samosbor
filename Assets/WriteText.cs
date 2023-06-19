@@ -1,0 +1,126 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.UI;
+
+public class WriteText : MonoBehaviour
+{
+    [SerializeField] private GameObject noteManager;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject cutsceneCam;
+    [SerializeField] private GameObject afterSceneCanvas;
+    [SerializeField] private PlayableDirector director;
+    [SerializeField] private float lenghtOfCutscene;
+    [SerializeField] private GameObject[] DestroyOnOpen;
+
+    [SerializeField] TMP_Text tmpProText;
+    string writer;
+    [SerializeField] private Coroutine coroutine;
+
+    [SerializeField] float delayBeforeStart = 0f;
+    [SerializeField] float timeBtwChars = 0.1f;
+    [SerializeField] string leadingChar = "";
+    [SerializeField] bool leadingCharBeforeDelay = false;
+    [Space(10)][SerializeField] private bool startOnEnable = false;
+
+    [Header("Collision-Based")]
+    [SerializeField] private bool clearAtStart = false;
+    enum options { clear, complete }
+    [SerializeField] options collisionExitOptions;
+
+    void Awake()
+    {
+        if (tmpProText != null)
+        {
+            writer = tmpProText.text;
+        }
+    }
+
+    void Start()
+    {
+        if (!clearAtStart) return;
+        if (tmpProText != null)
+        {
+            tmpProText.text = "";
+        }
+    }
+
+    public void OnEnable()
+    {
+        noteManager.SetActive(true);
+        var sounds = player.transform.GetChild(1).gameObject;
+        sounds.SetActive(false);
+        player.GetComponent<MoveEnabler>().enableController = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        foreach (GameObject ob in DestroyOnOpen)
+        {
+            ob.SetActive(false);
+        }
+        if (startOnEnable) StartTypewriter();
+    }
+
+    private void StartTypewriter()
+    {
+        StopAllCoroutines();
+
+        if (tmpProText != null)
+        {
+            tmpProText.text = "";
+
+            StartCoroutine("TypeWriterTMP");
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+
+    void Update()
+    {
+        /*if (Input.GetKey(KeyCode.E))
+        {
+            OnBtnClick();
+        }*/
+    }
+    public void OnBtnClick()
+    {
+        noteManager.SetActive(false);
+        StartCoroutine(FinishCut());
+    }
+
+    IEnumerator TypeWriterTMP()
+    {
+        tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
+
+        yield return new WaitForSeconds(delayBeforeStart);
+
+        foreach (char c in writer)
+        {
+            if (tmpProText.text.Length > 0)
+            {
+                tmpProText.text = tmpProText.text.Substring(0, tmpProText.text.Length - leadingChar.Length);
+            }
+            tmpProText.text += c;
+            tmpProText.text += leadingChar;
+            yield return new WaitForSeconds(timeBtwChars);
+        }
+
+        if (leadingChar != "")
+        {
+            tmpProText.text = tmpProText.text.Substring(0, tmpProText.text.Length - leadingChar.Length);
+        }
+    }
+
+    IEnumerator FinishCut()
+    {
+        yield return new WaitForSeconds(lenghtOfCutscene);
+        afterSceneCanvas.SetActive(true);
+        cutsceneCam.SetActive(false);
+    }
+}
