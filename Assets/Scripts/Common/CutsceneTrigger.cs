@@ -5,6 +5,7 @@ using UnityEngine.Playables;
 
 public class CutsceneTrigger : MonoBehaviour
 {
+    [SerializeField] private GameObject UI;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cutsceneCam;
     [SerializeField] private float lenghtOfCutscene;
@@ -16,6 +17,7 @@ public class CutsceneTrigger : MonoBehaviour
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         cutsceneCam.SetActive(true);
         player.SetActive(false);
+        UI.SetActive(false);
         StartCoroutine(FinishCut());
     }
 
@@ -23,6 +25,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(lenghtOfCutscene);
         player.SetActive(true);
+        UI.SetActive(true);
         cutsceneCam.SetActive(false);
     }
 }
