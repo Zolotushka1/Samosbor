@@ -26,12 +26,14 @@ public class Door : MonoBehaviour
         isOpen = !isOpen;
         if (isOpen)
         {
-            activator.activationLine = "Закрыть";
+            activator.activationLine_RU = "Р—Р°РєСЂС‹С‚СЊ";
+            activator.activationLine_ENG = "Close";
             DoorAnimator.SetBool("IsOpen", true);
         }
         else
         {
-            activator.activationLine = "Открыть";
+            activator.activationLine_RU = "РћС‚РєСЂС‹С‚СЊ";
+            activator.activationLine_ENG = "Open";
             DoorAnimator.SetBool("IsOpen", false);
         }
     }

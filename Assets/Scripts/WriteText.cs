@@ -34,11 +34,19 @@ public class WriteText : MonoBehaviour
     [SerializeField] private bool clearAtStart = false;
     enum options { clear, complete }
     [SerializeField] options collisionExitOptions;
+    [TextArea (3,15)] public string  noteTexts_RU;
+    [TextArea (3,15)] public string  noteTexts_ENG;
 
     void Awake()
     {
-        if (tmpProText != null)
+        if (Translator.LanguageId == 0)
         {
+            tmpProText.text = noteTexts_RU;
+            writer = tmpProText.text;
+        }
+        else if (Translator.LanguageId == 1)
+        {
+            tmpProText.text = noteTexts_ENG;
             writer = tmpProText.text;
         }
     }

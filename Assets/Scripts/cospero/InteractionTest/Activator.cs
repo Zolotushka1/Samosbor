@@ -4,14 +4,22 @@ using UnityEngine.Events;
 
 public class Activator : MonoBehaviour
 {
-	[TextArea (2,5)] public string  activationLine;
+	[TextArea (2,5)] public string  activationLine_RU;
+	[TextArea (2,5)] public string  activationLine_ENG;
     public AudioSource AudioClip;
 
     public UnityEvent OnActivatedButtonDown;
     
     public void ActivateCursor()
 	{
-		UICursor.activeCursor.Activate(activationLine);
+		if (Translator.LanguageId == 0)
+		{
+			UICursor.activeCursor.Activate(activationLine_RU);	
+		}
+		else if (Translator.LanguageId == 1)
+		{
+			UICursor.activeCursor.Activate(activationLine_ENG);	
+		}
 	}
 	public void DeactivateCursor()
 	{

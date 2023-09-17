@@ -52,13 +52,15 @@ public class Light_Switch : MonoBehaviour
 
                 
             }
-            activator.activationLine = "Выключить";
+            activator.activationLine_RU = "Р’С‹РєР»СЋС‡РёС‚СЊ";
+            activator.activationLine_ENG = "Off";
             
         }
         else
         {
             //SwitchAnimator.SetBool("IsOn", true);
-            activator.activationLine = "Включить";
+            activator.activationLine_RU = "Р’РєР»СЋС‡РёС‚СЊ";
+            activator.activationLine_ENG = "On";
             foreach (GameObject Light in Lights)
             {
                 
